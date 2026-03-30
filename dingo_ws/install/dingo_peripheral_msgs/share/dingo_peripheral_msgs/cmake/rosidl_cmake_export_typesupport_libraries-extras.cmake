@@ -1,0 +1,1 @@
+/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs/rosidl_cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake

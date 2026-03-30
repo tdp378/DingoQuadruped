@@ -1,0 +1,40 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_gazebo
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/launch/simulation.launch.py
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/launch/world/normal.world
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/launch/world/office.world
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/config/controllers.yaml
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/lib/dingo_gazebo/joint_states_gazebo_plugin.py
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/ament_index/resource_index/package_run_dependencies/dingo_gazebo
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/ament_index/resource_index/parent_prefix_path/dingo_gazebo
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/environment/ament_prefix_path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/environment/ament_prefix_path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/environment/path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/environment/path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/local_setup.bash
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/local_setup.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/local_setup.zsh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/local_setup.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/package.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/ament_index/resource_index/packages/dingo_gazebo
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/cmake/dingo_gazeboConfig.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/cmake/dingo_gazeboConfig-version.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_gazebo/share/dingo_gazebo/package.xml

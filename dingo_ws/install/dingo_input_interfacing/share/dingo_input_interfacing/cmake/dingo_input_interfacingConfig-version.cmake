@@ -1,0 +1,1 @@
+/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_input_interfacing/ament_cmake_core/dingo_input_interfacingConfig-version.cmake

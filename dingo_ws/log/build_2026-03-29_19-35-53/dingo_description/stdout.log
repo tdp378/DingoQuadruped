@@ -1,0 +1,97 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/config/joint_names_dingo_description.yaml
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_rviz.launch.py
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_rviz.rviz
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_state_publisher.launch.py
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL1_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL1_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link1.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link1.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link2.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link3.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link4.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR1_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR1_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link1.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link1.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link2.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link3.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link4.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L2_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L2_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L3_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L3_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link1_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link2.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link2_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link3.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link3_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R2_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R2_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R3_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R3_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL1_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL1_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link1.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link1.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link2.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link3.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link4.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR1_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR1_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link1.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link1.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link2.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link3.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link4.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link1_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link2.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link2_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link3.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link3_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_link.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_link.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/body_obj.mtl
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/body_obj.obj
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/link4.dae
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/link4_collision.STL
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/main.py
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/thread.jpg
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo copy.urdf
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo.urdf
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo_description.csv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/package_run_dependencies/dingo_description
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/parent_prefix_path/dingo_description
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/ament_prefix_path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/ament_prefix_path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.bash
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.zsh
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/package.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/packages/dingo_description
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/cmake/dingo_descriptionConfig.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/cmake/dingo_descriptionConfig-version.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/package.xml

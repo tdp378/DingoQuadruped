@@ -914,46 +914,7 @@
 
 
 
-  <!-- ROS control plugin -->
-  <gazebo>
-    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-      <robotNamespace>dingo_controller</robotNamespace>
-    </plugin>
-  </gazebo>
-
-
-  <!-- IMU sensor -->
-  <gazebo reference="base_link">
-    <gravity>true</gravity>
-    <sensor name="imu_sensor" type="imu">
-      <always_on>true</always_on>
-      <update_rate>100</update_rate>
-      <visualize>true</visualize>
-      <topic>__default_topic__</topic>
-      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-        <topicName>notspot_imu/base_link_orientation</topicName>
-        <bodyName>imu_link</bodyName>
-        <updateRateHZ>15.0</updateRateHZ>
-        <gaussianNoise>0.0</gaussianNoise>
-        <xyzOffset>0 0 0</xyzOffset>
-        <rpyOffset>0 0 0</rpyOffset>
-        <frameName>base_link</frameName>
-        <initialOrientationAsReference>false</initialOrientationAsReference>
-      </plugin>
-      <pose>0 0 0 0 0 0</pose>
-    </sensor>
-  </gazebo>
-
-  <!-- Joint state publisher plugin -->
-  <gazebo>
-    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
-        <robotNamespace>dingo_gazebo</robotNamespace>
-        <jointName>FR_theta1, FR_theta2, FR_theta3, FL_theta1, FL_theta2,
-                   FL_theta3, RR_theta1, RR_theta2, RR_theta3, RL_theta1,
-                   RL_theta2, RL_theta3</jointName>
-        <updateRate>100</updateRate>
-    </plugin>
-  </gazebo>
+  <!-- Gazebo Classic plugins removed; Gazebo Sim uses gz_ros2_control at end of this file. -->
 
   <!-- Transmission -->
   <transmission name="tran1">
@@ -1087,6 +1048,115 @@
     <mechanicalReduction>5</mechanicalReduction>
     </actuator>
   </transmission>
+
+  <!-- Gazebo Sim (Harmonic): ros2_control holds leg joints under gravity -->
+  <ros2_control name="GazeboSimSystem" type="system">
+    <hardware>
+      <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+    </hardware>
+    <joint name="FR_theta1">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="FR_theta2">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.72646626</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="FR_theta3">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="FL_theta1">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="FL_theta2">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.72646626</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="FL_theta3">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RR_theta1">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RR_theta2">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.72646626</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RR_theta3">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RL_theta1">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RL_theta2">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.72646626</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+    <joint name="RL_theta3">
+      <command_interface name="position"/>
+      <state_interface name="position">
+        <param name="initial_value">0.0</param>
+      </state_interface>
+      <state_interface name="velocity"/>
+      <state_interface name="effort"/>
+    </joint>
+  </ros2_control>
+
+  <gazebo>
+    <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+      <parameters>__DINGO_GZ_ROS2_CONTROL_YAML__</parameters>
+    </plugin>
+  </gazebo>
 
   <!-- FR4 friction -->
   <gazebo reference="FR_link4">

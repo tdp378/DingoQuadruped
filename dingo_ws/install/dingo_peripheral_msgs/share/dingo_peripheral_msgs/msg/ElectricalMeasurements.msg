@@ -1,0 +1,1 @@
+/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_peripheral_msgs/msg/ElectricalMeasurements.msg
