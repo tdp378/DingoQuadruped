@@ -1,0 +1,259 @@
+[0.036s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_control_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/install/dingo_control_msgs
+[1.387s] -- The C compiler identification is GNU 13.3.0
+[2.032s] -- The CXX compiler identification is GNU 13.3.0
+[2.225s] -- Detecting C compiler ABI info
+[2.651s] -- Detecting C compiler ABI info - done
+[2.657s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.668s] -- Detecting C compile features
+[2.669s] -- Detecting C compile features - done
+[2.714s] -- Detecting CXX compiler ABI info
+[3.122s] -- Detecting CXX compiler ABI info - done
+[3.129s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.129s] -- Detecting CXX compile features
+[3.129s] -- Detecting CXX compile features - done
+[3.580s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.985s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.138s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.724s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[5.171s] -- Found rosidl_generator_c: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[5.194s] -- Found rosidl_generator_cpp: 4.6.7 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[5.379s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.394s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.725s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[5.739s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[6.171s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[6.836s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[7.054s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[7.058s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[7.153s] -- Found PythonExtra: /usr/bin/python3  
+[7.441s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[7.488s] -- Configuring done (7.4s)
+[7.515s] -- Generating done (0.0s)
+[7.523s] -- Build files have been written to: /home/tdp378/DingoQuadruped/build/dingo_control_msgs
+[7.530s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_control_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/install/dingo_control_msgs
+[7.531s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/build/dingo_control_msgs -- -j16 -l16
+[7.568s] [  1%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[7.580s] [  1%] Built target ament_cmake_python_symlink_dingo_control_msgs
+[7.750s] running egg_info
+[7.751s] creating dingo_control_msgs.egg-info
+[7.771s] writing dingo_control_msgs.egg-info/PKG-INFO
+[7.771s] writing dependency_links to dingo_control_msgs.egg-info/dependency_links.txt
+[7.771s] writing top-level names to dingo_control_msgs.egg-info/top_level.txt
+[7.771s] writing manifest file 'dingo_control_msgs.egg-info/SOURCES.txt'
+[7.799s] [  1%] Built target dingo_control_msgs__rosidl_generator_type_description
+[7.806s] [  3%] [34m[1mGenerating C code for ROS interfaces[0m
+[7.813s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[7.814s] reading manifest file 'dingo_control_msgs.egg-info/SOURCES.txt'
+[7.815s] writing manifest file 'dingo_control_msgs.egg-info/SOURCES.txt'
+[7.835s] [  5%] Built target ament_cmake_python_build_dingo_control_msgs_egg
+[8.042s] [  5%] Built target dingo_control_msgs__cpp
+[8.079s] [  7%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/angle__type_support.c.o[0m
+[8.080s] [  9%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/joint_space__description.c.o[0m
+[8.080s] [ 11%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/task_space__description.c.o[0m
+[8.080s] [ 12%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/angle__description.c.o[0m
+[8.080s] [ 14%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/joint_space__functions.c.o[0m
+[8.080s] [ 16%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/angle__functions.c.o[0m
+[8.081s] [ 18%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/task_space__functions.c.o[0m
+[8.081s] [ 20%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/task_space__type_support.c.o[0m
+[8.083s] [ 22%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_control_msgs/msg/detail/joint_space__type_support.c.o[0m
+[8.458s] [ 24%] [32m[1mLinking C shared library libdingo_control_msgs__rosidl_generator_c.so[0m
+[8.485s] [ 24%] Built target dingo_control_msgs__rosidl_generator_c
+[8.493s] [ 25%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[8.495s] [ 27%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[8.495s] [ 29%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[8.495s] [ 31%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[8.495s] [ 33%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[8.495s] [ 35%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[8.792s] [ 38%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dingo_control_msgs/msg/task_space__type_support.cpp.o[0m
+[8.793s] [ 38%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dingo_control_msgs/msg/angle__type_support.cpp.o[0m
+[8.793s] [ 40%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dingo_control_msgs/msg/joint_space__type_support.cpp.o[0m
+[8.796s] [ 46%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dingo_control_msgs/msg/detail/task_space__type_support_c.cpp.o[0m
+[8.796s] [ 46%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dingo_control_msgs/msg/detail/joint_space__type_support_c.cpp.o[0m
+[8.796s] [ 46%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dingo_control_msgs/msg/detail/angle__type_support_c.cpp.o[0m
+[8.818s] [ 48%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dingo_control_msgs/msg/detail/angle__type_support.c.o[0m
+[8.820s] [ 50%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dingo_control_msgs/msg/detail/task_space__type_support.c.o[0m
+[8.820s] [ 51%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dingo_control_msgs/msg/detail/joint_space__type_support.c.o[0m
+[8.824s] [ 57%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dingo_control_msgs/msg/task_space__type_support.cpp.o[0m
+[8.824s] [ 57%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dingo_control_msgs/msg/joint_space__type_support.cpp.o[0m
+[8.825s] [ 59%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dingo_control_msgs/msg/detail/angle__type_support.cpp.o[0m
+[8.825s] [ 59%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dingo_control_msgs/msg/angle__type_support.cpp.o[0m
+[8.827s] [ 61%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dingo_control_msgs/msg/detail/task_space__type_support.cpp.o[0m
+[8.827s] [ 62%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dingo_control_msgs/msg/detail/joint_space__type_support.cpp.o[0m
+[8.881s] [ 66%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dingo_control_msgs/msg/detail/dds_fastrtps/joint_space__type_support.cpp.o[0m
+[8.881s] [ 66%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dingo_control_msgs/msg/detail/dds_fastrtps/angle__type_support.cpp.o[0m
+[8.924s] [ 68%] [32mBuilding CXX object CMakeFiles/dingo_control_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dingo_control_msgs/msg/detail/dds_fastrtps/task_space__type_support.cpp.o[0m
+[8.971s] [ 70%] [32m[1mLinking C shared library libdingo_control_msgs__rosidl_typesupport_introspection_c.so[0m
+[8.992s] [ 70%] Built target dingo_control_msgs__rosidl_typesupport_introspection_c
+[9.117s] [ 72%] [32m[1mLinking CXX shared library libdingo_control_msgs__rosidl_typesupport_c.so[0m
+[9.148s] [ 72%] Built target dingo_control_msgs__rosidl_typesupport_c
+[9.694s] [ 74%] [32m[1mLinking CXX shared library libdingo_control_msgs__rosidl_typesupport_cpp.so[0m
+[9.721s] [ 75%] [32m[1mLinking CXX shared library libdingo_control_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[9.731s] [ 75%] Built target dingo_control_msgs__rosidl_typesupport_cpp
+[9.771s] [ 75%] Built target dingo_control_msgs__rosidl_typesupport_introspection_cpp
+[9.919s] [ 79%] [32m[1mLinking CXX shared library libdingo_control_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[9.919s] [ 79%] [32m[1mLinking CXX shared library libdingo_control_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[9.956s] [ 79%] Built target dingo_control_msgs__rosidl_typesupport_fastrtps_c
+[9.956s] [ 79%] Built target dingo_control_msgs__rosidl_typesupport_fastrtps_cpp
+[9.975s] [ 79%] Built target dingo_control_msgs
+[9.996s] [ 81%] [34m[1mGenerating Python code for ROS interfaces[0m
+[10.280s] [ 81%] Built target dingo_control_msgs__py
+[10.293s] [ 87%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_py.dir/rosidl_generator_py/dingo_control_msgs/msg/_task_space_s.c.o[0m
+[10.293s] [ 87%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_py.dir/rosidl_generator_py/dingo_control_msgs/msg/_angle_s.c.o[0m
+[10.293s] [ 87%] [32mBuilding C object CMakeFiles/dingo_control_msgs__rosidl_generator_py.dir/rosidl_generator_py/dingo_control_msgs/msg/_joint_space_s.c.o[0m
+[10.587s] [ 88%] [32m[1mLinking C shared library libdingo_control_msgs__rosidl_generator_py.so[0m
+[10.614s] [ 88%] Built target dingo_control_msgs__rosidl_generator_py
+[10.627s] [ 92%] [32mBuilding C object CMakeFiles/dingo_control_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[10.627s] [ 92%] [32mBuilding C object CMakeFiles/dingo_control_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[10.628s] [ 94%] [32mBuilding C object CMakeFiles/dingo_control_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[10.698s] [ 96%] [32m[1mLinking C shared module rosidl_generator_py/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_c.so[0m
+[10.699s] [ 98%] [32m[1mLinking C shared module rosidl_generator_py/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_fastrtps_c.so[0m
+[10.701s] [100%] [32m[1mLinking C shared module rosidl_generator_py/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_introspection_c.so[0m
+[10.718s] [100%] Built target dingo_control_msgs_s__rosidl_typesupport_c
+[10.720s] [100%] Built target dingo_control_msgs_s__rosidl_typesupport_fastrtps_c
+[10.720s] [100%] Built target dingo_control_msgs_s__rosidl_typesupport_introspection_c
+[10.727s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/build/dingo_control_msgs -- -j16 -l16
+[10.728s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/build/dingo_control_msgs
+[10.733s] -- Install configuration: ""
+[10.734s] -- Execute custom install script
+[10.734s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/ament_index/resource_index/rosidl_interfaces/dingo_control_msgs
+[10.740s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/Angle.json
+[10.746s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/JointSpace.json
+[10.751s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/TaskSpace.json
+[10.757s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/angle.h
+[10.763s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__functions.h
+[10.768s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__struct.h
+[10.773s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__type_support.h
+[10.779s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__functions.h
+[10.785s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__struct.h
+[10.790s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__type_support.h
+[10.796s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__functions.h
+[10.801s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__struct.h
+[10.807s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__type_support.h
+[10.812s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/joint_space.h
+[10.818s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/rosidl_generator_c__visibility_control.h
+[10.823s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/task_space.h
+[10.829s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/library_path.sh
+[10.834s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/library_path.dsv
+[10.840s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__rosidl_typesupport_fastrtps_c.h
+[10.846s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__rosidl_typesupport_fastrtps_c.h
+[10.852s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__rosidl_typesupport_fastrtps_c.h
+[10.857s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[10.863s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/angle.hpp
+[10.868s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__builder.hpp
+[10.874s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__struct.hpp
+[10.879s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__traits.hpp
+[10.885s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__type_support.hpp
+[10.890s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__builder.hpp
+[10.896s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__struct.hpp
+[10.901s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__traits.hpp
+[10.907s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__type_support.hpp
+[10.912s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__builder.hpp
+[10.918s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__struct.hpp
+[10.923s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__traits.hpp
+[10.929s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__type_support.hpp
+[10.934s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/joint_space.hpp
+[10.940s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[10.946s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/task_space.hpp
+[10.951s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__rosidl_typesupport_fastrtps_cpp.hpp
+[10.957s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__rosidl_typesupport_fastrtps_cpp.hpp
+[10.963s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__rosidl_typesupport_fastrtps_cpp.hpp
+[10.968s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[10.974s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__rosidl_typesupport_introspection_c.h
+[10.979s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__rosidl_typesupport_introspection_c.h
+[10.985s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__rosidl_typesupport_introspection_c.h
+[10.991s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[10.996s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/angle__rosidl_typesupport_introspection_cpp.hpp
+[11.002s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/joint_space__rosidl_typesupport_introspection_cpp.hpp
+[11.007s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/include/dingo_control_msgs/dingo_control_msgs/msg/detail/task_space__rosidl_typesupport_introspection_cpp.hpp
+[11.013s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/pythonpath.sh
+[11.019s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/pythonpath.dsv
+[11.024s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs-0.0.0-py3.12.egg-info/PKG-INFO
+[11.029s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs-0.0.0-py3.12.egg-info/SOURCES.txt
+[11.035s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs-0.0.0-py3.12.egg-info/dependency_links.txt
+[11.041s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs-0.0.0-py3.12.egg-info/top_level.txt
+[11.047s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/__init__.py
+[11.052s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_c.c
+[11.058s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[11.064s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/_dingo_control_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[11.069s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_c.so
+[11.075s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_fastrtps_c.so
+[11.080s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_introspection_c.so
+[11.085s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/__init__.py
+[11.091s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_angle.py
+[11.097s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_angle_s.c
+[11.102s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_joint_space.py
+[11.108s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_joint_space_s.c
+[11.113s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_task_space.py
+[11.119s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_task_space_s.c
+[11.125s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_fastrtps_c.so
+[11.125s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_introspection_c.so
+[11.125s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_c.so
+[11.125s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/Angle.idl
+[11.131s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/JointSpace.idl
+[11.136s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/TaskSpace.idl
+[11.142s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/Angle.msg
+[11.148s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/JointSpace.msg
+[11.154s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/msg/TaskSpace.msg
+[11.160s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/ament_index/resource_index/package_run_dependencies/dingo_control_msgs
+[11.165s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/ament_index/resource_index/parent_prefix_path/dingo_control_msgs
+[11.171s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/ament_prefix_path.sh
+[11.176s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/ament_prefix_path.dsv
+[11.182s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/path.sh
+[11.188s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/environment/path.dsv
+[11.193s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/local_setup.bash
+[11.199s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/local_setup.sh
+[11.204s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/local_setup.zsh
+[11.209s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/local_setup.dsv
+[11.215s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/package.dsv
+[11.221s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/ament_index/resource_index/packages/dingo_control_msgs
+[11.227s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/rosidl_cmake-extras.cmake
+[11.232s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[11.238s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[11.244s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[11.249s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[11.255s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[11.261s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[11.267s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgsConfig.cmake
+[11.273s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgsConfig-version.cmake
+[11.279s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/package.xml
+[11.285s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_generator_c.so
+[11.285s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_generator_c.so" to ""
+[11.285s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_fastrtps_c.so
+[11.285s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[11.285s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_fastrtps_cpp.so
+[11.285s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[11.285s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_introspection_c.so
+[11.285s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_introspection_c.so" to ""
+[11.286s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_c.so
+[11.286s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_c.so" to ""
+[11.286s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_introspection_cpp.so
+[11.286s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[11.286s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_cpp.so
+[11.286s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_typesupport_cpp.so" to ""
+[11.313s] Listing '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs'...
+[11.313s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/__init__.py'...
+[11.313s] Listing '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg'...
+[11.313s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/__init__.py'...
+[11.313s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_angle.py'...
+[11.313s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_joint_space.py'...
+[11.313s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/python3.12/site-packages/dingo_control_msgs/msg/_task_space.py'...
+[11.316s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_generator_py.so
+[11.316s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/install/dingo_control_msgs/lib/libdingo_control_msgs__rosidl_generator_py.so" to ""
+[11.316s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_generator_cExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_generator_cExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_generator_cppExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_introspection_cExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_cExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[11.317s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_cppExport.cmake
+[11.318s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/dingo_control_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[11.318s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_generator_pyExport.cmake
+[11.318s] -- Installing: /home/tdp378/DingoQuadruped/install/dingo_control_msgs/share/dingo_control_msgs/cmake/export_dingo_control_msgs__rosidl_generator_pyExport-noconfig.cmake
+[11.319s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_control_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/build/dingo_control_msgs

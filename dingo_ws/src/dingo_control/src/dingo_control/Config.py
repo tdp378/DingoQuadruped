@@ -5,19 +5,18 @@ from enum import Enum
 import math as m
 
 
-
 class Configuration:
     def __init__(self):
         ################# CONTROLLER BASE COLOR ##############
-        self.ps4_color = PS4_COLOR    
-        self.ps4_deactivated_color = PS4_DEACTIVATED_COLOR    
+        self.ps4_color = PS4_COLOR
+        self.ps4_deactivated_color = PS4_DEACTIVATED_COLOR
 
         #################### COMMANDS ####################
         self.max_x_velocity = 1.2
         self.max_y_velocity = 0.5
         self.max_yaw_rate = 2.0
         self.max_pitch = 30.0 * np.pi / 180.0
-        
+
         #################### MOVEMENT PARAMS ####################
         self.z_time_constant = 0.02
         self.z_speed = 0.06  # maximum speed [m/s]
@@ -30,25 +29,21 @@ class Configuration:
         self.max_stance_yaw_rate = 1
 
         #################### STANCE ####################
-        self.delta_x = 0.117 #- 0.00535 #115650.00535
+        self.delta_x = 0.117
 
-        #These x_shift variables will move the default foot positions of the robot 
-        #Handy if the centre of mass shifts as can move the feet to compensate
-        self.rear_leg_x_shift = -0.04 #In default config, the robots mass is slightly biased to the back feet, so the back feet are shifted back slightly
+        # These x_shift variables will move the default foot positions of the robot
+        # Handy if the centre of mass shifts as can move the feet to compensate
+        self.rear_leg_x_shift = -0.04
         self.front_leg_x_shift = 0.00
 
-        self.delta_y = 0.1106 #0.1083
-        self.default_z_ref = -0.25 #-0.16
+        self.delta_y = 0.1106
+        self.default_z_ref = -0.25
 
         #################### SWING ######################
         self.z_coeffs = None
         self.z_clearance = 0.07
-        self.alpha = (
-            0.5  # Ratio between touchdown distance and total horizontal stance movement
-        )
-        self.beta = (
-            0.5  # Ratio between touchdown distance and total horizontal stance movement
-        )
+        self.alpha = 0.5  # Ratio between touchdown distance and total horizontal stance movement
+        self.beta = 0.5   # Ratio between touchdown distance and total horizontal stance movement
 
         #################### GAIT #######################
         self.dt = 0.01
@@ -56,17 +51,13 @@ class Configuration:
         self.contact_phases = np.array(
             [[1, 1, 1, 0], [1, 0, 1, 1], [1, 0, 1, 1], [1, 1, 1, 0]]
         )
-        self.overlap_time = (
-            0.04  # duration of the phase where all four feet are on the ground
-        )
-        self.swing_time = (
-            0.07  # duration of the phase when only two feet are on the ground
-        )
+        self.overlap_time = 0.04
+        self.swing_time = 0.07
 
         ######################## GEOMETRY ######################
-        self.LEG_FB = 0.11165 #   front-back distance from center line to leg axis
-        self.LEG_LR = 0.061  # left-right distance from center line to leg plane
-        self.LEG_ORIGINS = np.array( #Origins of the initial frame from the centre of the body
+        self.LEG_FB = 0.11165  # front-back distance from center line to leg axis
+        self.LEG_LR = 0.061    # left-right distance from center line to leg plane
+        self.LEG_ORIGINS = np.array(
             [
                 [self.LEG_FB, self.LEG_FB, -self.LEG_FB, -self.LEG_FB],
                 [-self.LEG_LR, self.LEG_LR, -self.LEG_LR, self.LEG_LR],
@@ -74,12 +65,12 @@ class Configuration:
             ]
         )
 
-        #Leg lengths
+        # Leg lengths
         self.L1 = 0.05162024721
         self.L2 = 0.130
         self.L3 = 0.13813664159
         self.phi = m.radians(73.91738698)
-        
+
         ################### INERTIAL ####################
         self.FRAME_MASS = 0.560  # kg
         self.MODULE_MASS = 0.080  # kg
@@ -100,19 +91,31 @@ class Configuration:
         leg_y = leg_x
         self.LEG_INERTIA = (leg_x, leg_y, leg_z)
 
+        ################### BEHAVIOR POSE OFFSETS ####################
+        # These are what the new mode-driven driver expects.
+        self.sit_x_offsets = np.array([-0.03, -0.03, 0.09, 0.09], dtype=float)
+        self.sit_y_offsets = np.array([0.0, 0.0, 0.0, 0.0], dtype=float)
+        self.sit_z_offsets = np.array([-0.18, -0.18, -0.18, -0.18], dtype=float)
+
+        self.lay_x_offsets = np.array([-0.015, -0.015, 0.035, 0.035], dtype=float)
+        self.lay_y_offsets = np.array([0.0, 0.0, 0.0, 0.0], dtype=float)
+        self.lay_z_offsets = np.array([-0.24, -0.24, -0.24, -0.24], dtype=float)
+
     @property
-    def default_stance(self): #Default stance of the robot relative to the centre frame
+    def default_stance(self):
+        # Default stance of the robot relative to the centre frame
         return np.array(
             [
                 [
-                    self.delta_x + self.front_leg_x_shift, #Front Right
-                    self.delta_x + self.front_leg_x_shift, #Front Left
-                    -self.delta_x + self.rear_leg_x_shift, #Back Right
-                    -self.delta_x + self.rear_leg_x_shift, #Back Left
+                    self.delta_x + self.front_leg_x_shift,   # Front Right
+                    self.delta_x + self.front_leg_x_shift,   # Front Left
+                    -self.delta_x + self.rear_leg_x_shift,   # Back Right
+                    -self.delta_x + self.rear_leg_x_shift,   # Back Left
                 ],
                 [-self.delta_y, self.delta_y, -self.delta_y, self.delta_y],
                 [0, 0, 0, 0],
-            ]
+            ],
+            dtype=float,
         )
 
     ################## SWING ###########################
@@ -132,7 +135,7 @@ class Configuration:
         #         [4, 3, 2, 1, 0],
         #         [0.5 ** 4, 0.5 ** 3, 0.5 ** 2, 0.5 ** 1, 0.5 ** 0],
         #     ]
-        # )   
+        # )
         # self.z_coeffs = solve(A_z, b_z)
 
     ########################### GAIT ####################
@@ -158,7 +161,40 @@ class Configuration:
     def phase_length(self):
         return 2 * self.overlap_ticks + 2 * self.swing_ticks
 
-#OBSOLETE
+    ########################### MODE POSES ####################
+    def set_behavior_pose_offsets(self, sit_x, sit_y, sit_z, lay_x, lay_y, lay_z):
+        self.sit_x_offsets = np.array(sit_x, dtype=float)
+        self.sit_y_offsets = np.array(sit_y, dtype=float)
+        self.sit_z_offsets = np.array(sit_z, dtype=float)
+
+        self.lay_x_offsets = np.array(lay_x, dtype=float)
+        self.lay_y_offsets = np.array(lay_y, dtype=float)
+        self.lay_z_offsets = np.array(lay_z, dtype=float)
+
+    @property
+    def rest_stance(self):
+        stance = self.default_stance.copy()
+        stance[2, :] += self.default_z_ref
+        return stance
+
+    @property
+    def sit_stance(self):
+        stance = self.default_stance.copy()
+        stance[0, :] += self.sit_x_offsets
+        stance[1, :] += self.sit_y_offsets
+        stance[2, :] += self.sit_z_offsets
+        return stance
+
+    @property
+    def lay_stance(self):
+        stance = self.default_stance.copy()
+        stance[0, :] += self.lay_x_offsets
+        stance[1, :] += self.lay_y_offsets
+        stance[2, :] += self.lay_z_offsets
+        return stance
+
+
+# OBSOLETE
 class SimulationConfig:
     def __init__(self):
         self.XML_IN = "pupper.xml"
@@ -171,13 +207,12 @@ class SimulationConfig:
         self.JOINT_SOLIMP = "0.9 0.95 0.001"  # joint constraint parameters
         self.GEOM_SOLREF = "0.01 1"  # time constant and damping ratio for geom contacts
         self.GEOM_SOLIMP = "0.9 0.95 0.001"  # geometry contact parameters
-        
+
         # Joint params
         G = 220  # Servo gear ratio
         m_rotor = 0.016  # Servo rotor mass
         r_rotor = 0.005  # Rotor radius
         self.ARMATURE = G ** 2 * m_rotor * r_rotor ** 2  # Inertia of rotational joints
-        # print("Servo armature", self.ARMATURE)
 
         NATURAL_DAMPING = 1.0  # Damping resulting from friction
         ELECTRICAL_DAMPING = 0.049  # Damping resulting from back-EMF
@@ -196,20 +231,19 @@ class SimulationConfig:
 
 # Leg Linkage for the purpose of hardware interfacing
 class Leg_linkage:
-    def __init__(self,configuration):
-        self.a = 35.12 #mm
-        self.b = 37.6 #mm
-        self.c = 43 #mm
-        self.d = 35.23  #mm
-        self.e = 67.1 #mm
-        self.f = 130 #mm  #new will be 130.0
-        self.g = 37 #mm
-        self.h = 43 #mm
-        self.upper_leg_length = configuration.L2*1000
-        self.lower_leg_length = configuration.L3*1000
-        self.lower_leg_bend_angle = m.radians(0) # degrees found on CAD
+    def __init__(self, configuration):
+        self.a = 35.12  # mm
+        self.b = 37.6  # mm
+        self.c = 43  # mm
+        self.d = 35.23  # mm
+        self.e = 67.1  # mm
+        self.f = 130  # mm
+        self.g = 37  # mm
+        self.h = 43  # mm
+        self.upper_leg_length = configuration.L2 * 1000
+        self.lower_leg_length = configuration.L3 * 1000
+        self.lower_leg_bend_angle = m.radians(0)
         self.i = self.upper_leg_length
         self.hip_width = configuration.L1 * 1000
-        self.gamma = m.atan(28.80/20.20)
-        self.EDC = m.acos((self.c**2+self.h**2-self.e**2)/(2*self.c*self.h))
-
+        self.gamma = m.atan(28.80 / 20.20)
+        self.EDC = m.acos((self.c**2 + self.h**2 - self.e**2) / (2 * self.c * self.h))

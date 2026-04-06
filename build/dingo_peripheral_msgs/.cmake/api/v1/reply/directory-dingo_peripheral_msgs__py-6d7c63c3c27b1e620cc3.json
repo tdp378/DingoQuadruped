@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "dingo_peripheral_msgs__py",
+		"source" : "/home/tdp378/DingoQuadruped/build/dingo_peripheral_msgs/dingo_peripheral_msgs__py"
+	}
+}

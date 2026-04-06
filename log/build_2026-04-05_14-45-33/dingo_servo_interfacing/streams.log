@@ -1,0 +1,68 @@
+[0.253s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_hardware_interfacing/dingo_servo_interfacing -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing
+[1.356s] -- The C compiler identification is GNU 13.3.0
+[2.002s] -- The CXX compiler identification is GNU 13.3.0
+[2.195s] -- Detecting C compiler ABI info
+[2.620s] -- Detecting C compiler ABI info - done
+[2.627s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.638s] -- Detecting C compile features
+[2.638s] -- Detecting C compile features - done
+[2.683s] -- Detecting CXX compiler ABI info
+[3.091s] -- Detecting CXX compiler ABI info - done
+[3.098s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[3.098s] -- Detecting CXX compile features
+[3.098s] -- Detecting CXX compile features - done
+[3.548s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[3.954s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[4.107s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[4.811s] -- Configuring done (4.6s)
+[4.813s] -- Generating done (0.0s)
+[4.814s] -- Build files have been written to: /home/tdp378/DingoQuadruped/build/dingo_servo_interfacing
+[4.817s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_hardware_interfacing/dingo_servo_interfacing -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing
+[4.818s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/build/dingo_servo_interfacing -- -j16 -l16
+[4.851s] Built target ament_cmake_python_symlink_dingo_servo_interfacing
+[5.080s] running egg_info
+[5.081s] creating dingo_servo_interfacing.egg-info
+[5.095s] writing dingo_servo_interfacing.egg-info/PKG-INFO
+[5.095s] writing dependency_links to dingo_servo_interfacing.egg-info/dependency_links.txt
+[5.095s] writing top-level names to dingo_servo_interfacing.egg-info/top_level.txt
+[5.095s] writing manifest file 'dingo_servo_interfacing.egg-info/SOURCES.txt'
+[5.138s] reading manifest file 'dingo_servo_interfacing.egg-info/SOURCES.txt'
+[5.138s] writing manifest file 'dingo_servo_interfacing.egg-info/SOURCES.txt'
+[5.155s] Built target ament_cmake_python_build_dingo_servo_interfacing_egg
+[5.162s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/build/dingo_servo_interfacing -- -j16 -l16
+[5.163s] Invoking command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/build/dingo_servo_interfacing
+[5.167s] -- Install configuration: ""
+[5.168s] -- Execute custom install script
+[5.168s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/pythonpath.sh
+[5.174s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/pythonpath.dsv
+[5.179s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing-0.0.0-py3.12.egg-info/PKG-INFO
+[5.185s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing-0.0.0-py3.12.egg-info/SOURCES.txt
+[5.223s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing-0.0.0-py3.12.egg-info/dependency_links.txt
+[5.238s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing-0.0.0-py3.12.egg-info/top_level.txt
+[5.246s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/CalibrateServos.py
+[5.252s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/HardwareInterface.py
+[5.258s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/ServoCalibrationDefinition.py
+[5.263s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/__init__.py
+[5.270s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/ament_index/resource_index/package_run_dependencies/dingo_servo_interfacing
+[5.275s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/ament_index/resource_index/parent_prefix_path/dingo_servo_interfacing
+[5.280s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/ament_prefix_path.sh
+[5.285s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/ament_prefix_path.dsv
+[5.290s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/path.sh
+[5.296s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/environment/path.dsv
+[5.301s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/local_setup.bash
+[5.308s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/local_setup.sh
+[5.313s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/local_setup.zsh
+[5.319s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/local_setup.dsv
+[5.324s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/package.dsv
+[5.329s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/ament_index/resource_index/packages/dingo_servo_interfacing
+[5.334s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/cmake/dingo_servo_interfacingConfig.cmake
+[5.339s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/cmake/dingo_servo_interfacingConfig-version.cmake
+[5.344s] -- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/share/dingo_servo_interfacing/package.xml
+[5.404s] /home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/CalibrateServos.py:12: SyntaxWarning: invalid escape sequence '\-'
+[5.404s]   '''    HOW TO CALIBRATE THE MOTORS
+[5.406s] Listing '/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing'...
+[5.406s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/CalibrateServos.py'...
+[5.406s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/HardwareInterface.py'...
+[5.406s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/ServoCalibrationDefinition.py'...
+[5.406s] Compiling '/home/tdp378/DingoQuadruped/install/dingo_servo_interfacing/lib/python3.12/site-packages/dingo_servo_interfacing/__init__.py'...
+[5.443s] Invoked command in '/home/tdp378/DingoQuadruped/build/dingo_servo_interfacing' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/build/dingo_servo_interfacing

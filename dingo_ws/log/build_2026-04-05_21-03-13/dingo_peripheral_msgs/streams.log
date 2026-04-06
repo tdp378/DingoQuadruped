@@ -1,0 +1,198 @@
+[0.158s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_peripheral_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs
+[0.202s] -- The C compiler identification is GNU 13.3.0
+[0.240s] -- The CXX compiler identification is GNU 13.3.0
+[0.254s] -- Detecting C compiler ABI info
+[0.374s] -- Detecting C compiler ABI info - done
+[0.380s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.380s] -- Detecting C compile features
+[0.380s] -- Detecting C compile features - done
+[0.387s] -- Detecting CXX compiler ABI info
+[0.466s] -- Detecting CXX compiler ABI info - done
+[0.473s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.473s] -- Detecting CXX compile features
+[0.473s] -- Detecting CXX compile features - done
+[0.476s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.598s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.658s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.698s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.705s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.753s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.794s] -- Found rosidl_adapter: 4.6.7 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.199s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[1.494s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.900s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.904s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[2.002s] -- Found PythonExtra: /usr/bin/python3  
+[2.417s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[2.449s] -- Configuring done (2.3s)
+[2.468s] -- Generating done (0.0s)
+[2.475s] -- Build files have been written to: /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs
+[2.479s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_peripheral_msgs -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs
+[2.480s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs -- -j16 -l16
+[2.517s] [  2%] [34m[1mGenerating type hashes for ROS interfaces[0m
+[2.521s] [  2%] Built target ament_cmake_python_symlink_dingo_peripheral_msgs
+[2.651s] [  2%] Built target dingo_peripheral_msgs__rosidl_generator_type_description
+[2.658s] [  5%] [34m[1mGenerating C code for ROS interfaces[0m
+[2.666s] [  8%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[2.682s] running egg_info
+[2.683s] creating dingo_peripheral_msgs.egg-info
+[2.697s] writing dingo_peripheral_msgs.egg-info/PKG-INFO
+[2.698s] writing dependency_links to dingo_peripheral_msgs.egg-info/dependency_links.txt
+[2.698s] writing top-level names to dingo_peripheral_msgs.egg-info/top_level.txt
+[2.698s] writing manifest file 'dingo_peripheral_msgs.egg-info/SOURCES.txt'
+[2.742s] reading manifest file 'dingo_peripheral_msgs.egg-info/SOURCES.txt'
+[2.742s] writing manifest file 'dingo_peripheral_msgs.egg-info/SOURCES.txt'
+[2.762s] [  8%] Built target ament_cmake_python_build_dingo_peripheral_msgs_egg
+[2.838s] [  8%] Built target dingo_peripheral_msgs__cpp
+[2.850s] [ 17%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__description.c.o[0m
+[2.850s] [ 17%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.c.o[0m
+[2.850s] [ 17%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs__rosidl_generator_c.dir/rosidl_generator_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__functions.c.o[0m
+[2.881s] [ 20%] [32m[1mLinking C shared library libdingo_peripheral_msgs__rosidl_generator_c.so[0m
+[2.907s] [ 20%] Built target dingo_peripheral_msgs__rosidl_generator_c
+[2.914s] [ 26%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[2.914s] [ 26%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[2.914s] [ 29%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[2.915s] [ 32%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[2.916s] [ 35%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[2.916s] [ 38%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[3.097s] [ 41%] [32mBuilding CXX object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/dingo_peripheral_msgs/msg/electrical_measurements__type_support.cpp.o[0m
+[3.102s] [ 44%] [32mBuilding CXX object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/dingo_peripheral_msgs/msg/electrical_measurements__type_support.cpp.o[0m
+[3.114s] [ 47%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.c.o[0m
+[3.115s] [ 50%] [32mBuilding CXX object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.cpp.o[0m
+[3.124s] [ 52%] [32m[1mLinking CXX shared library libdingo_peripheral_msgs__rosidl_typesupport_c.so[0m
+[3.135s] [ 55%] [32mBuilding CXX object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support_c.cpp.o[0m
+[3.140s] [ 58%] [32m[1mLinking C shared library libdingo_peripheral_msgs__rosidl_typesupport_introspection_c.so[0m
+[3.148s] [ 61%] [32mBuilding CXX object CMakeFiles/dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/dingo_peripheral_msgs/msg/detail/dds_fastrtps/electrical_measurements__type_support.cpp.o[0m
+[3.155s] [ 61%] Built target dingo_peripheral_msgs__rosidl_typesupport_c
+[3.168s] [ 61%] Built target dingo_peripheral_msgs__rosidl_typesupport_introspection_c
+[3.309s] [ 64%] [32m[1mLinking CXX shared library libdingo_peripheral_msgs__rosidl_typesupport_cpp.so[0m
+[3.350s] [ 64%] Built target dingo_peripheral_msgs__rosidl_typesupport_cpp
+[3.420s] [ 67%] [32m[1mLinking CXX shared library libdingo_peripheral_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[3.460s] [ 70%] [32m[1mLinking CXX shared library libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[3.465s] [ 70%] Built target dingo_peripheral_msgs__rosidl_typesupport_introspection_cpp
+[3.516s] [ 70%] Built target dingo_peripheral_msgs__rosidl_typesupport_fastrtps_c
+[3.525s] [ 73%] [32m[1mLinking CXX shared library libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[3.578s] [ 73%] Built target dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cpp
+[3.602s] [ 73%] Built target dingo_peripheral_msgs
+[3.699s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[4.032s] [ 76%] Built target dingo_peripheral_msgs__py
+[4.046s] [ 79%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs__rosidl_generator_py.dir/rosidl_generator_py/dingo_peripheral_msgs/msg/_electrical_measurements_s.c.o[0m
+[4.116s] [ 82%] [32m[1mLinking C shared library libdingo_peripheral_msgs__rosidl_generator_py.so[0m
+[4.141s] [ 82%] Built target dingo_peripheral_msgs__rosidl_generator_py
+[4.155s] [ 91%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[4.155s] [ 91%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs_s__rosidl_typesupport_c.dir/rosidl_generator_py/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[4.155s] [ 91%] [32mBuilding C object CMakeFiles/dingo_peripheral_msgs_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[4.218s] [ 94%] [32m[1mLinking C shared module rosidl_generator_py/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_c.so[0m
+[4.218s] [ 97%] [32m[1mLinking C shared module rosidl_generator_py/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_introspection_c.so[0m
+[4.218s] [100%] [32m[1mLinking C shared module rosidl_generator_py/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_fastrtps_c.so[0m
+[4.238s] [100%] Built target dingo_peripheral_msgs_s__rosidl_typesupport_fastrtps_c
+[4.238s] [100%] Built target dingo_peripheral_msgs_s__rosidl_typesupport_c
+[4.238s] [100%] Built target dingo_peripheral_msgs_s__rosidl_typesupport_introspection_c
+[4.245s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs -- -j16 -l16
+[4.246s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs
+[4.252s] -- Install configuration: ""
+[4.252s] -- Execute custom install script
+[4.252s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/ament_index/resource_index/rosidl_interfaces/dingo_peripheral_msgs
+[4.258s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/msg/ElectricalMeasurements.json
+[4.264s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__functions.h
+[4.270s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__struct.h
+[4.276s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.h
+[4.283s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/electrical_measurements.h
+[4.289s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/rosidl_generator_c__visibility_control.h
+[4.295s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/library_path.sh
+[4.302s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/library_path.dsv
+[4.309s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__rosidl_typesupport_fastrtps_c.h
+[4.315s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[4.322s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__rosidl_typesupport_introspection_c.h
+[4.328s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[4.335s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__builder.hpp
+[4.341s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__struct.hpp
+[4.347s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__traits.hpp
+[4.354s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.hpp
+[4.360s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/electrical_measurements.hpp
+[4.366s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/rosidl_generator_cpp__visibility_control.hpp
+[4.373s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__rosidl_typesupport_fastrtps_cpp.hpp
+[4.379s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[4.385s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/include/dingo_peripheral_msgs/dingo_peripheral_msgs/msg/detail/electrical_measurements__rosidl_typesupport_introspection_cpp.hpp
+[4.391s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/pythonpath.sh
+[4.397s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/pythonpath.dsv
+[4.404s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs-0.0.0-py3.12.egg-info/PKG-INFO
+[4.409s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs-0.0.0-py3.12.egg-info/SOURCES.txt
+[4.416s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs-0.0.0-py3.12.egg-info/dependency_links.txt
+[4.422s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs-0.0.0-py3.12.egg-info/top_level.txt
+[4.429s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/__init__.py
+[4.435s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_c.c
+[4.441s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+[4.447s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/_dingo_peripheral_msgs_s.ep.rosidl_typesupport_introspection_c.c
+[4.453s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_c.so
+[4.458s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_fastrtps_c.so
+[4.464s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_introspection_c.so
+[4.470s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg/__init__.py
+[4.477s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg/_electrical_measurements.py
+[4.482s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg/_electrical_measurements_s.c
+[4.489s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_fastrtps_c.so
+[4.489s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_introspection_c.so
+[4.489s] -- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/dingo_peripheral_msgs_s__rosidl_typesupport_c.so
+[4.489s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/msg/ElectricalMeasurements.idl
+[4.496s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/msg/ElectricalMeasurements.msg
+[4.502s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/ament_index/resource_index/package_run_dependencies/dingo_peripheral_msgs
+[4.508s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/ament_index/resource_index/parent_prefix_path/dingo_peripheral_msgs
+[4.514s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/ament_prefix_path.sh
+[4.520s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/ament_prefix_path.dsv
+[4.526s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/path.sh
+[4.531s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/environment/path.dsv
+[4.537s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/local_setup.bash
+[4.543s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/local_setup.sh
+[4.549s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/local_setup.zsh
+[4.555s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/local_setup.dsv
+[4.561s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/package.dsv
+[4.566s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/ament_index/resource_index/packages/dingo_peripheral_msgs
+[4.573s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/rosidl_cmake-extras.cmake
+[4.578s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+[4.584s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+[4.590s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/ament_cmake_export_targets-extras.cmake
+[4.596s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[4.602s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.611s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[4.620s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgsConfig.cmake
+[4.630s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgsConfig-version.cmake
+[4.637s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/package.xml
+[4.643s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_generator_c.so
+[4.644s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_generator_c.so" to ""
+[4.644s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_c.so
+[4.644s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+[4.644s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_introspection_c.so
+[4.644s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_introspection_c.so" to ""
+[4.645s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_c.so
+[4.645s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_c.so" to ""
+[4.645s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_cpp.so
+[4.645s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+[4.645s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_introspection_cpp.so
+[4.646s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+[4.646s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_cpp.so
+[4.646s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_typesupport_cpp.so" to ""
+[4.691s] Listing '/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs'...
+[4.691s] Compiling '/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/__init__.py'...
+[4.691s] Listing '/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg'...
+[4.691s] Compiling '/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg/__init__.py'...
+[4.691s] Compiling '/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/python3.12/site-packages/dingo_peripheral_msgs/msg/_electrical_measurements.py'...
+[4.698s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_generator_py.so
+[4.698s] -- Set non-toolchain portion of runtime path of "/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/lib/libdingo_peripheral_msgs__rosidl_generator_py.so" to ""
+[4.698s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_generator_cExport.cmake
+[4.698s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_generator_cExport-noconfig.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_introspection_cExport.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_cExport.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_cExport-noconfig.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_generator_cppExport.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+[4.699s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_introspection_cppExport.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_cppExport.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/dingo_peripheral_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_generator_pyExport.cmake
+[4.700s] -- Installing: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_msgs/share/dingo_peripheral_msgs/cmake/export_dingo_peripheral_msgs__rosidl_generator_pyExport-noconfig.cmake
+[4.702s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_msgs

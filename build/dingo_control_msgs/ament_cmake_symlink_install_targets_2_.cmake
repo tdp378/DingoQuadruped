@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/tdp378/DingoQuadruped/build/dingo_control_msgs/rosidl_generator_py/dingo_control_msgs/dingo_control_msgs_s__rosidl_typesupport_c.so" "TARGETS" "dingo_control_msgs_s__rosidl_typesupport_c" "DESTINATION" "lib/python3.12/site-packages/dingo_control_msgs")

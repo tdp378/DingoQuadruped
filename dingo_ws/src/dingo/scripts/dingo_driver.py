@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 import argparse
-import signal
-import sys
 import time
 
 import numpy as np
 import rclpy
+from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from rclpy.utilities import remove_ros_args
-from rclpy.parameter import Parameter
-from std_msgs.msg import Bool, Float64MultiArray
+from std_msgs.msg import Bool, Float64MultiArray, String
 
+from dingo_control.Command import Command
 from dingo_control.Config import Configuration, Leg_linkage
 from dingo_control.Controller import Controller
 from dingo_control.Kinematics import four_legs_inverse_kinematics
-from dingo_control.State import BehaviorState, State
+from dingo_control.State import BehaviorState, RobotMode, State
 from dingo_control_msgs.msg import JointSpace, TaskSpace
-from dingo_input_interfacing.InputInterface import InputInterface
 
 
 def parse_driver_args(argv):
@@ -31,243 +29,247 @@ class DingoDriver:
     def __init__(self, is_sim, is_physical, use_imu, node: Node):
         self.node = node
         self.message_rate = 50
-        # Wall-clock sleep, not node.create_rate(): Rate.sleep() deadlocks under
-        # use_sim_time because the timer callback needs spin_once() to fire, but
-        # we're blocked in sleep() and not spinning.
         self._loop_period = 1.0 / self.message_rate
 
         self.is_sim = is_sim
         self.is_physical = is_physical
         self.use_imu = use_imu
 
-        self.joint_command_sub = node.create_subscription(
-            JointSpace, '/joint_space_cmd', self.run_joint_space_command, 10
+        # ✅ MODE ALIAS MAP (THIS WAS YOUR ISSUE AREA)
+        self._mode_map = {
+            'rest': RobotMode.REST,
+            'stand': RobotMode.REST,   # compatibility
+            'trot': RobotMode.TROT,
+            'walk': RobotMode.TROT,    # compatibility
+            'sit': RobotMode.SIT,
+            'lay': RobotMode.LAY,
+        }
+
+        self.latest_cmd_vel = Twist()
+        self.latest_mode = RobotMode.REST
+
+        self.desired_mode_topic = '/dingo_mode'
+        self.filtered_cmd_vel_topic = '/cmd_vel'
+
+        self.current_mode_topic = node.declare_parameter(
+            'current_mode_topic', '/dingo/current_mode'
+        ).value
+
+        self._current_mode_pub = node.create_publisher(String, self.current_mode_topic, 10)
+
+        self._declare_behavior_pose_parameters()
+
+        # ---------------- SUBS ----------------
+        self.mode_sub = node.create_subscription(
+            String, self.desired_mode_topic, self.update_robot_mode, 10
         )
-        self.task_command_sub = node.create_subscription(
-            TaskSpace, '/task_space_cmd', self.run_task_space_command, 10
+
+        self.cmd_vel_sub = node.create_subscription(
+            Twist, self.filtered_cmd_vel_topic, self.update_cmd_vel, 10
         )
+
         self.estop_status_sub = node.create_subscription(
             Bool, '/emergency_stop_status', self.update_emergency_stop_status, 10
         )
-        self.external_commands_enabled = 0
 
-        # Gazebo Sim (gz_ros2_control): JointGroupPositionController on /leg_joint_position_controller/commands
+        # ---------------- SIM OUTPUT ----------------
         self._sim_leg_cmds_pub = None
         if self.is_sim:
-            gz_leg_topic = node.declare_parameter(
-                'gz_leg_command_topic', '/leg_joint_position_controller/commands'
-            ).value
-            self._sim_leg_cmds_pub = node.create_publisher(Float64MultiArray, gz_leg_topic, 10)
+            # 👉 SEND TROT OUTPUT TO RAW TOPIC (mode manager will take over final output)
+            gz_leg_topic = '/dingo/trot_joint_commands'
 
+            self._sim_leg_cmds_pub = node.create_publisher(
+                Float64MultiArray, gz_leg_topic, 10
+            )
+
+        # ---------------- CONFIG ----------------
         self.config = Configuration()
-        self.hardware_interface = None
-        if is_physical:
-            from dingo_servo_interfacing.HardwareInterface import HardwareInterface
+        self._apply_behavior_pose_parameters()
 
-            self.linkage = Leg_linkage(self.config)
-            self.hardware_interface = HardwareInterface(self.linkage)
-        self.imu = None
-        if self.use_imu:
-            from dingo_peripheral_interfacing.IMU import IMU
+                # REST height slider mapping
+        # Slider input is expected to be:
+        #   -1.0 = bottom
+        #    0.0 = center
+        #   +1.0 = top
+        self.rest_height_center = node.declare_parameter(
+            'rest_height_center',
+            self.config.default_z_ref
+        ).value
 
-            self.imu = IMU()
+        self.rest_height_min = node.declare_parameter(
+            'rest_height_min',
+            self.rest_height_center - 0.02
+        ).value
 
-        self.controller = Controller(
-            self.config,
-            four_legs_inverse_kinematics,
-            node,
+        self.rest_height_max = node.declare_parameter(
+            'rest_height_max',
+            self.rest_height_center + 0.02
+        ).value
+
+        # ---------------- CONTROLLER ----------------
+        self.controller = Controller(self.config, four_legs_inverse_kinematics, node)
+        self.state = State()
+
+        self.state.robot_mode = RobotMode.REST
+        self.state.behavior_state = BehaviorState.REST
+        
+                # Use the already-stable startup height as the slider center
+        self.rest_height_center = float(self.state.height)
+        self.rest_height_min = self.rest_height_center + 0.08
+        self.rest_height_max = self.rest_height_center - 0.04
+
+
+        self.node.get_logger().info("✅ Dingo mode driver ready")
+
+        self.publish_current_mode()
+
+    # ---------------- PARAMETERS ----------------
+
+    def _declare_behavior_pose_parameters(self):
+        defaults = {
+            'sit_x_offsets': [-0.03, -0.03, 0.09, 0.09],
+            'sit_y_offsets': [0.0, 0.0, 0.0, 0.0],
+            'sit_z_offsets': [-0.18, -0.18, -0.18, -0.18],
+            'lay_x_offsets': [-0.015, -0.015, 0.035, 0.035],
+            'lay_y_offsets': [0.0, 0.0, 0.0, 0.0],
+            'lay_z_offsets': [-0.24, -0.24, -0.24, -0.24],
+        }
+
+        for name, default in defaults.items():
+            self.node.declare_parameter(name, default)
+
+    def _param_vec(self, name):
+        return np.array(self.node.get_parameter(name).value, dtype=float)
+
+    def _apply_behavior_pose_parameters(self):
+        self.config.set_behavior_pose_offsets(
+            sit_x=self._param_vec('sit_x_offsets'),
+            sit_y=self._param_vec('sit_y_offsets'),
+            sit_z=self._param_vec('sit_z_offsets'),
+            lay_x=self._param_vec('lay_x_offsets'),
+            lay_y=self._param_vec('lay_y_offsets'),
+            lay_z=self._param_vec('lay_z_offsets'),
         )
 
-        self.state = State()
-        log = node.get_logger()
-        log.info('Creating input listener...')
-        self.input_interface = InputInterface(self.config, node)
-        log.info('Input listener successfully initialised... Robot will now receive commands via Joy messages')
+    # ---------------- CALLBACKS ----------------
 
-        log.info('Summary of current gait parameters:')
-        log.info('overlap time: %.2f' % self.config.overlap_time)
-        log.info('swing time: %.2f' % self.config.swing_time)
-        log.info('z clearance: %.2f' % self.config.z_clearance)
-        log.info('back leg x shift: %.2f' % self.config.rear_leg_x_shift)
-        log.info('front leg x shift: %.2f' % self.config.front_leg_x_shift)
+    def update_robot_mode(self, msg: String):
+        mode = msg.data.strip().lower()
+
+        if mode not in self._mode_map:
+            self.node.get_logger().warn(f"Unknown mode: {mode}")
+            return
+
+        self.latest_mode = self._mode_map[mode]
+        self.node.get_logger().info(f"Mode -> {self.latest_mode.value}")
+        self.publish_current_mode()
+
+    def publish_current_mode(self):
+        msg = String()
+        msg.data = self.latest_mode.value
+        self._current_mode_pub.publish(msg)
+
+    def update_cmd_vel(self, msg: Twist):
+        self.latest_cmd_vel = msg
+
+    def update_emergency_stop_status(self, msg):
+        self.state.currently_estopped = 1 if msg.data else 0
+
+    # ---------------- CORE ----------------
+
+    def build_command(self):
+        command = Command()
+
+        command.horizontal_velocity = np.array([
+            self.latest_cmd_vel.linear.x,
+            self.latest_cmd_vel.linear.y
+        ])
+        command.yaw_rate = self.latest_cmd_vel.angular.z
+
+        # Preserve current state by default
+        command.height = self.state.height
+        command.pitch = self.state.pitch
+        command.roll = self.state.roll
+
+        # Height slider is normalized:
+        #   -1.0 = bottom
+        #    0.0 = center
+        #   +1.0 = top
+        #
+        # Use it in BOTH REST and TROT so gait can adapt like old Dingo did.
+        if self.latest_mode in (RobotMode.REST, RobotMode.TROT):
+            slider = float(np.clip(self.latest_cmd_vel.linear.z, -1.0, 1.0))
+
+            if slider >= 0.0:
+                command.height = self.rest_height_center + slider * (
+                    self.rest_height_max - self.rest_height_center
+                )
+            else:
+                command.height = self.rest_height_center + (-slider) * (
+                    self.rest_height_min - self.rest_height_center
+                )
+
+        # Optional: keep pitch/roll only in REST for now
+        if self.latest_mode == RobotMode.REST:
+            command.roll = np.clip(self.latest_cmd_vel.angular.x, -1.0, 1.0) * 0.10
+            command.pitch = np.clip(self.latest_cmd_vel.angular.y, -1.0, 1.0) * 0.10
+
+        return command
+
+    def apply_mode(self):
+        if self.latest_mode == RobotMode.TROT:
+            self.state.behavior_state = BehaviorState.TROT
+        elif self.latest_mode == RobotMode.REST:
+            self.state.behavior_state = BehaviorState.REST
+        elif self.latest_mode == RobotMode.SIT:
+            self.state.behavior_state = BehaviorState.SIT
+        elif self.latest_mode == RobotMode.LAY:
+            self.state.behavior_state = BehaviorState.LAY
 
     def run(self):
         while rclpy.ok():
             rclpy.spin_once(self.node, timeout_sec=0.0)
-            if self.state.currently_estopped == 1:
-                self.node.get_logger().warn(
-                    'E-stop pressed. Controlling code now disabled until E-stop is released'
-                )
-                self.state.trotting_active = 0
-                while self.state.currently_estopped == 1:
-                    rclpy.spin_once(self.node, timeout_sec=0.0)
-                    time.sleep(self._loop_period)
-                self.node.get_logger().info('E-stop released')
 
-            self.node.get_logger().info('Manual robot control active. Currently not accepting external commands')
-            command = self.input_interface.get_command(self.state, self.message_rate)
-            self.state.behavior_state = BehaviorState.REST
+            self.apply_mode()
+
+            command = self.build_command()
+
             self.controller.run(self.state, command)
-            self.controller.publish_joint_space_command(self.state.joint_angles)
-            self.controller.publish_task_space_command(self.state.rotated_foot_locations)
-            if self.is_sim:
-                self.publish_joints_to_sim(self.state.joint_angles)
-            if self.is_physical:
-                self.hardware_interface.set_actuator_postions(self.state.joint_angles)
-            self._loop_count = 0
-            while self.state.currently_estopped == 0:
-                rclpy.spin_once(self.node, timeout_sec=0.0)
-                t_start = time.perf_counter()
-
-                command = self.input_interface.get_command(self.state, self.message_rate)
-
-                self._loop_count += 1
-                if self._loop_count % 250 == 1:
-                    self.node.get_logger().info(
-                        f'loop #{self._loop_count}  state={self.state.behavior_state}  '
-                        f'vel={command.horizontal_velocity}  '
-                        f'sim_pub={self._sim_leg_cmds_pub is not None}'
-                    )
-
-                if command.joystick_control_event == 1:
-                    if self.state.currently_estopped == 0:
-                        self.external_commands_enabled = 1
-                        break
-                    self.node.get_logger().error(
-                        'Received Request to enable external control, but e-stop is pressed so the request '
-                        'has been ignored. Please release e-stop and try again'
-                    )
-
-                self.state.euler_orientation = (
-                    self.imu.read_orientation() if self.use_imu else np.array([0, 0, 0])
-                )
-                self.controller.run(self.state, command)
-
-                if self.state.behavior_state in (BehaviorState.TROT, BehaviorState.REST):
-                    self.controller.publish_joint_space_command(self.state.joint_angles)
-                    self.controller.publish_task_space_command(self.state.rotated_foot_locations)
-                    if self.is_sim:
-                        self.publish_joints_to_sim(self.state.joint_angles)
-                    if self.is_physical:
-                        self.hardware_interface.set_actuator_postions(self.state.joint_angles)
-                    time.perf_counter() - t_start
-                else:
-                    if self.is_sim:
-                        self.publish_joints_to_sim(self.state.joint_angles)
-                time.sleep(self._loop_period)
-
-            if self.state.currently_estopped == 0:
-                self.node.get_logger().info('Manual Control deactivated. Now accepting external commands')
-                command = self.input_interface.get_command(self.state, self.message_rate)
-                self.state.behavior_state = BehaviorState.REST
-                self.controller.run(self.state, command)
-                self.controller.publish_joint_space_command(self.state.joint_angles)
-                self.controller.publish_task_space_command(self.state.rotated_foot_locations)
-                if self.is_sim:
-                    self.publish_joints_to_sim(self.state.joint_angles)
-                if self.is_physical:
-                    self.hardware_interface.set_actuator_postions(self.state.joint_angles)
-                while self.state.currently_estopped == 0:
-                    rclpy.spin_once(self.node, timeout_sec=0.0)
-                    command = self.input_interface.get_command(self.state, self.message_rate)
-                    if command.joystick_control_event == 1:
-                        self.external_commands_enabled = 0
-                        break
-                    time.sleep(self._loop_period)
-
-    def update_emergency_stop_status(self, msg):
-        if msg.data:
-            self.state.currently_estopped = 1
-        else:
-            self.state.currently_estopped = 0
-
-    def run_task_space_command(self, msg):
-        if self.external_commands_enabled == 1 and self.state.currently_estopped == 0:
-            foot_locations = np.zeros((3, 4))
-            foot_locations[:, 0] = [msg.fr_foot.x, msg.fr_foot.y, msg.fr_foot.z]
-            foot_locations[:, 1] = [msg.fl_foot.x, msg.fl_foot.y, msg.fl_foot.z]
-            foot_locations[:, 2] = [msg.rr_foot.x, msg.rr_foot.y, msg.rr_foot.z]
-            foot_locations[:, 3] = [msg.rl_foot.x, msg.rl_foot.y, msg.rl_foot.z]
-            print(foot_locations)
-            joint_angles = self.controller.inverse_kinematics(foot_locations, self.config)
-            if self.is_sim:
-                self.publish_joints_to_sim(joint_angles)
-
-            if self.is_physical:
-                self.hardware_interface.set_actuator_postions(joint_angles)
-
-        elif self.external_commands_enabled == 0:
-            self.node.get_logger().error(
-                'ERROR: Robot not accepting commands. Please deactivate manual control before sending control commands'
-            )
-        elif self.state.currently_estopped == 1:
-            self.node.get_logger().error('ERROR: Robot currently estopped. Please release before trying to send commands')
-
-    def run_joint_space_command(self, msg):
-        if self.external_commands_enabled == 1 and self.state.currently_estopped == 0:
-            joint_angles = np.zeros((3, 4))
-            joint_angles[:, 0] = [
-                np.radians(msg.fr_foot.theta1),
-                np.radians(msg.fr_foot.theta2),
-                np.radians(msg.fr_foot.theta3),
-            ]
-            joint_angles[:, 1] = [
-                np.radians(msg.fl_foot.theta1),
-                np.radians(msg.fl_foot.theta2),
-                np.radians(msg.fl_foot.theta3),
-            ]
-            joint_angles[:, 2] = [
-                np.radians(msg.rr_foot.theta1),
-                np.radians(msg.rr_foot.theta2),
-                np.radians(msg.rr_foot.theta3),
-            ]
-            joint_angles[:, 3] = [
-                np.radians(msg.rl_foot.theta1),
-                np.radians(msg.rl_foot.theta2),
-                np.radians(msg.rl_foot.theta3),
-            ]
-            print(joint_angles)
 
             if self.is_sim:
-                self.publish_joints_to_sim(joint_angles)
+                self.publish_joints(self.state.joint_angles)
 
-            if self.is_physical:
-                self.hardware_interface.set_actuator_postions(joint_angles)
+            time.sleep(self._loop_period)
 
-        elif self.external_commands_enabled == 0:
-            self.node.get_logger().error(
-                'ERROR: Robot not accepting commands. Please deactivate manual control before sending control commands'
-            )
-        elif self.state.currently_estopped == 1:
-            self.node.get_logger().error('ERROR: Robot currently estopped. Please release before trying to send commands')
+    def publish_joints(self, joint_angles):
+        if not self._sim_leg_cmds_pub:
+            return
 
-    def publish_joints_to_sim(self, joint_angles):
-        # Order matches dingo_gz_ros2_control.yaml: FR, FL, RR, RL × (theta1, theta2, theta3); radians
-        rows, cols = joint_angles.shape
         msg = Float64MultiArray()
+
         msg.data = [
-            float(joint_angles[row, col])
-            for col in range(cols)
-            for row in range(rows)
+            float(joint_angles[0, 0]), float(joint_angles[1, 0]), float(joint_angles[2, 0]),
+            float(joint_angles[0, 1]), float(joint_angles[1, 1]), float(joint_angles[2, 1]),
+            float(joint_angles[0, 2]), float(joint_angles[1, 2]), float(joint_angles[2, 2]),
+            float(joint_angles[0, 3]), float(joint_angles[1, 3]), float(joint_angles[2, 3]),
         ]
+
         self._sim_leg_cmds_pub.publish(msg)
 
 
-def signal_handler(sig, frame):
-    sys.exit(0)
+def main(args=None):
+    import sys
+    argv = sys.argv if args is None else args
+    parsed = parse_driver_args(argv)
 
-
-def main():
-    args = parse_driver_args(sys.argv)
-    rclpy.init()
+    rclpy.init(args=args)
     node = rclpy.create_node('dingo_driver')
-    # use_sim_time is already declared by rclpy (Jazzy+); only override for sim.
-    if args.is_sim:
-        node.set_parameters([Parameter('use_sim_time', Parameter.Type.BOOL, True)])
-    signal.signal(signal.SIGINT, signal_handler)
-    driver = DingoDriver(args.is_sim, args.is_physical, args.use_imu, node)
+
     try:
+        driver = DingoDriver(parsed.is_sim, parsed.is_physical, parsed.use_imu, node)
         driver.run()
+    except KeyboardInterrupt:
+        pass
     finally:
         node.destroy_node()
         rclpy.shutdown()

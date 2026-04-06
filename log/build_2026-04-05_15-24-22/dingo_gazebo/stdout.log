@@ -1,0 +1,23 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/launch/simulation.launch.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/launch/world/normal.world
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/launch/world/office.world
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/config/controllers.yaml
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/config/dingo_gz_ros2_control.yaml
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/lib/dingo_gazebo/joint_states_gazebo_plugin.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/ament_index/resource_index/package_run_dependencies/dingo_gazebo
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/ament_index/resource_index/parent_prefix_path/dingo_gazebo
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/environment/path.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/environment/path.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/local_setup.bash
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/local_setup.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/local_setup.zsh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/local_setup.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/package.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/ament_index/resource_index/packages/dingo_gazebo
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/cmake/dingo_gazeboConfig.cmake
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/cmake/dingo_gazeboConfig-version.cmake
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/install/dingo_gazebo/share/dingo_gazebo/package.xml

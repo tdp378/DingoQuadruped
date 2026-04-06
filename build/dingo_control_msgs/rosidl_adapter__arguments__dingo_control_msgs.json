@@ -1,0 +1,8 @@
+{
+  "package_name": "dingo_control_msgs",
+  "non_idl_tuples": [
+    "/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_control_msgs:msg/Angle.msg",
+    "/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_control_msgs:msg/JointSpace.msg",
+    "/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_control_msgs:msg/TaskSpace.msg"
+  ]
+}

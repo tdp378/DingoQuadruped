@@ -1,0 +1,60 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/tdp378/DingoQuadruped/build/dingo_peripheral_interfacing
+Built target ament_cmake_python_symlink_dingo_peripheral_interfacing
+running egg_info
+creating dingo_peripheral_interfacing.egg-info
+writing dingo_peripheral_interfacing.egg-info/PKG-INFO
+writing dependency_links to dingo_peripheral_interfacing.egg-info/dependency_links.txt
+writing top-level names to dingo_peripheral_interfacing.egg-info/top_level.txt
+writing manifest file 'dingo_peripheral_interfacing.egg-info/SOURCES.txt'
+reading manifest file 'dingo_peripheral_interfacing.egg-info/SOURCES.txt'
+writing manifest file 'dingo_peripheral_interfacing.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_dingo_peripheral_interfacing_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/pythonpath.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/pythonpath.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/PKG-INFO
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/top_level.txt
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/IMU.py
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/__init__.py
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/imu_test.py
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/battery_voltage_checking.py
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/dingo_lcd_interfacing.py
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/ament_index/resource_index/package_run_dependencies/dingo_peripheral_interfacing
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/ament_index/resource_index/parent_prefix_path/dingo_peripheral_interfacing
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/ament_prefix_path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/ament_prefix_path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/path.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/path.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/local_setup.bash
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/local_setup.sh
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/local_setup.zsh
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/local_setup.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/package.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/ament_index/resource_index/packages/dingo_peripheral_interfacing
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/cmake/dingo_peripheral_interfacingConfig.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/cmake/dingo_peripheral_interfacingConfig-version.cmake
+-- Symlinking: /home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/package.xml
+Listing '/home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing'...
+Compiling '/home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/IMU.py'...
+Compiling '/home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/__init__.py'...
+Compiling '/home/tdp378/DingoQuadruped/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/imu_test.py'...

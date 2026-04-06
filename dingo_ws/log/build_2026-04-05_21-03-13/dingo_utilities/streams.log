@@ -1,0 +1,22 @@
+[0.622s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/build --no-deps symlink_data
+[0.848s] running develop
+[0.986s] running egg_info
+[0.986s] creating src/dingo_utilities.egg-info
+[0.999s] writing src/dingo_utilities.egg-info/PKG-INFO
+[0.999s] writing dependency_links to src/dingo_utilities.egg-info/dependency_links.txt
+[0.999s] writing requirements to src/dingo_utilities.egg-info/requires.txt
+[0.999s] writing top-level names to src/dingo_utilities.egg-info/top_level.txt
+[0.999s] writing manifest file 'src/dingo_utilities.egg-info/SOURCES.txt'
+[1.026s] reading manifest file 'src/dingo_utilities.egg-info/SOURCES.txt'
+[1.026s] writing manifest file 'src/dingo_utilities.egg-info/SOURCES.txt'
+[1.040s] running build_ext
+[1.040s] Creating /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/lib/python3.12/site-packages/dingo-utilities.egg-link (link to src)
+[1.041s] 
+[1.041s] Installed /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/src
+[1.041s] running symlink_data
+[1.041s] creating /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/share/ament_index
+[1.041s] creating /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/share/ament_index/resource_index
+[1.041s] creating /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/share/ament_index/resource_index/packages
+[1.041s] symbolically linking /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/resource/dingo_utilities -> /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/share/ament_index/resource_index/packages
+[1.041s] symbolically linking /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/package.xml -> /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/share/dingo_utilities
+[1.062s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_utilities/build --no-deps symlink_data

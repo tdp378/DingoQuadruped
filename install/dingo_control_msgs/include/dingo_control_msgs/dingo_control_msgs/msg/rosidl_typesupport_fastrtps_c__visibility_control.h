@@ -1,0 +1,1 @@
+/home/tdp378/DingoQuadruped/build/dingo_control_msgs/rosidl_typesupport_fastrtps_c/dingo_control_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h

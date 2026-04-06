@@ -1,0 +1,103 @@
+[0.159s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description
+[0.218s] -- The C compiler identification is GNU 13.3.0
+[0.258s] -- The CXX compiler identification is GNU 13.3.0
+[0.268s] -- Detecting C compiler ABI info
+[0.377s] -- Detecting C compiler ABI info - done
+[0.387s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.387s] -- Detecting C compile features
+[0.387s] -- Detecting C compile features - done
+[0.393s] -- Detecting CXX compiler ABI info
+[0.467s] -- Detecting CXX compiler ABI info - done
+[0.475s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.475s] -- Detecting CXX compile features
+[0.476s] -- Detecting CXX compile features - done
+[0.478s] -- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.599s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.661s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.762s] -- Configuring done (0.6s)
+[0.763s] -- Generating done (0.0s)
+[0.764s] -- Build files have been written to: /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description
+[0.769s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/tdp378/DingoQuadruped/dingo_ws/src/dingo_description -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description
+[0.770s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description -- -j16 -l16
+[0.802s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description -- -j16 -l16
+[0.802s] Invoking command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description
+[0.807s] -- Install configuration: ""
+[0.808s] -- Execute custom install script
+[0.808s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/config/joint_names_dingo_description.yaml
+[0.814s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_rviz.launch.py
+[0.820s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_rviz.rviz
+[0.826s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/launch/dingo_state_publisher.launch.py
+[0.832s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL1_obj.mtl
+[0.838s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL1_obj.obj
+[0.845s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link1.STL
+[0.851s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link1.dae
+[0.857s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link2.STL
+[0.863s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link3.STL
+[0.869s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FL_link4.STL
+[0.875s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR1_obj.mtl
+[0.881s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR1_obj.obj
+[0.887s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link1.STL
+[0.893s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link1.dae
+[0.900s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link2.STL
+[0.906s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link3.STL
+[0.912s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/FR_link4.STL
+[0.918s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L2_obj.mtl
+[0.925s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L2_obj.obj
+[0.930s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L3_obj.mtl
+[0.936s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L3_obj.obj
+[0.942s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link1_collision.STL
+[0.948s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link2.dae
+[0.954s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link2_collision.STL
+[0.961s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link3.dae
+[0.967s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/L_link3_collision.STL
+[0.973s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R2_obj.mtl
+[0.979s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R2_obj.obj
+[0.984s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R3_obj.mtl
+[0.990s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R3_obj.obj
+[0.996s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL1_obj.mtl
+[1.002s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL1_obj.obj
+[1.008s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link1.STL
+[1.014s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link1.dae
+[1.020s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link2.STL
+[1.026s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link3.STL
+[1.031s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RL_link4.STL
+[1.037s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR1_obj.mtl
+[1.043s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR1_obj.obj
+[1.050s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link1.STL
+[1.056s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link1.dae
+[1.063s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link2.STL
+[1.068s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link3.STL
+[1.074s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/RR_link4.STL
+[1.080s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link1_collision.STL
+[1.086s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link2.dae
+[1.091s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link2_collision.STL
+[1.098s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link3.dae
+[1.104s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/R_link3_collision.STL
+[1.110s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_collision.STL
+[1.116s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_link.STL
+[1.122s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/base_link.dae
+[1.130s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/body_obj.mtl
+[1.136s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/body_obj.obj
+[1.142s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/link4.dae
+[1.148s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/link4_collision.STL
+[1.154s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/main.py
+[1.160s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/meshes/thread.jpg
+[1.166s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo copy.urdf
+[1.172s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo.urdf
+[1.178s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/urdf/dingo_description.csv
+[1.184s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/package_run_dependencies/dingo_description
+[1.190s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/parent_prefix_path/dingo_description
+[1.196s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/ament_prefix_path.sh
+[1.202s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/ament_prefix_path.dsv
+[1.208s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/path.sh
+[1.214s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/environment/path.dsv
+[1.220s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.bash
+[1.226s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.sh
+[1.232s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.zsh
+[1.238s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/local_setup.dsv
+[1.244s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/package.dsv
+[1.250s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/ament_index/resource_index/packages/dingo_description
+[1.256s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/cmake/dingo_descriptionConfig.cmake
+[1.263s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/cmake/dingo_descriptionConfig-version.cmake
+[1.269s] -- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_description/share/dingo_description/package.xml
+[1.292s] Invoked command in '/home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/tdp378/DingoQuadruped/dingo_ws/install/dingo_utilities:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_description

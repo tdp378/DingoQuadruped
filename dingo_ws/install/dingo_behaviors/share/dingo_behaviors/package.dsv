@@ -1,0 +1,6 @@
+source;share/dingo_behaviors/hook/cmake_prefix_path.dsv
+source;share/dingo_behaviors/hook/cmake_prefix_path.sh
+source;share/dingo_behaviors/local_setup.bash
+source;share/dingo_behaviors/local_setup.dsv
+source;share/dingo_behaviors/local_setup.sh
+source;share/dingo_behaviors/local_setup.zsh
