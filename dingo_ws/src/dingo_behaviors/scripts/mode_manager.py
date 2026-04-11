@@ -28,16 +28,16 @@ class DingoModeManager(Node):
         self.joint_names, self.poses = self.load_poses(poses_file)
 
         self.static_modes = { 'sit', 'lay', }
-        self.dynamic_modes = {'trot', 'stand', 'rest'}
+        self.dynamic_modes = {'trot', 'rest'}
         self.valid_modes = self.static_modes | self.dynamic_modes
 
-        if 'stand' not in self.poses:
-            raise RuntimeError("poses.yaml must define a 'stand' pose")
+        if 'rest' not in self.poses:
+            raise RuntimeError("poses.yaml must define a 'rest' pose")
 
         self.transition_steps = TRANSITION_STEPS
-        self.current_mode = 'stand'
-        self.current_pose = list(self.poses['stand'])
-        self.target_pose = list(self.poses['stand'])
+        self.current_mode = 'rest'
+        self.current_pose = list(self.poses['rest'])
+        self.target_pose = list(self.poses['rest'])
         self.step_count = self.transition_steps
 
         self.latest_joint_positions = None

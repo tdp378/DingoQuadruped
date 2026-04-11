@@ -33,7 +33,7 @@ class Configuration:
 
         # These x_shift variables will move the default foot positions of the robot
         # Handy if the centre of mass shifts as can move the feet to compensate
-        self.rear_leg_x_shift = -0.04
+        self.rear_leg_x_shift = 0.00
         self.front_leg_x_shift = 0.00
 
         self.delta_y = 0.1106
@@ -101,6 +101,9 @@ class Configuration:
         self.lay_y_offsets = np.array([0.0, 0.0, 0.0, 0.0], dtype=float)
         self.lay_z_offsets = np.array([-0.24, -0.24, -0.24, -0.24], dtype=float)
 
+        self.rest_x_offsets = np.zeros(4, dtype=float)
+        self.rest_y_offsets = np.zeros(4, dtype=float)
+
     @property
     def default_stance(self):
         # Default stance of the robot relative to the centre frame
@@ -162,7 +165,8 @@ class Configuration:
         return 2 * self.overlap_ticks + 2 * self.swing_ticks
 
     ########################### MODE POSES ####################
-    def set_behavior_pose_offsets(self, sit_x, sit_y, sit_z, lay_x, lay_y, lay_z):
+    def set_behavior_pose_offsets(self, sit_x, sit_y, sit_z, lay_x, lay_y, lay_z,
+                                   rest_x=None, rest_y=None):
         self.sit_x_offsets = np.array(sit_x, dtype=float)
         self.sit_y_offsets = np.array(sit_y, dtype=float)
         self.sit_z_offsets = np.array(sit_z, dtype=float)
@@ -171,9 +175,16 @@ class Configuration:
         self.lay_y_offsets = np.array(lay_y, dtype=float)
         self.lay_z_offsets = np.array(lay_z, dtype=float)
 
+        if rest_x is not None:
+            self.rest_x_offsets = np.array(rest_x, dtype=float)
+        if rest_y is not None:
+            self.rest_y_offsets = np.array(rest_y, dtype=float)
+
     @property
     def rest_stance(self):
         stance = self.default_stance.copy()
+        stance[0, :] += self.rest_x_offsets
+        stance[1, :] += self.rest_y_offsets
         stance[2, :] += self.default_z_ref
         return stance
 

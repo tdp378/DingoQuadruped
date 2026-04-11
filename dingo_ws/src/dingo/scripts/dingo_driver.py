@@ -38,7 +38,6 @@ class DingoDriver:
         # ✅ MODE ALIAS MAP (THIS WAS YOUR ISSUE AREA)
         self._mode_map = {
             'rest': RobotMode.REST,
-            'stand': RobotMode.REST,   # compatibility
             'trot': RobotMode.TROT,
             'walk': RobotMode.TROT,    # compatibility
             'sit': RobotMode.SIT,
@@ -47,6 +46,7 @@ class DingoDriver:
 
         self.latest_cmd_vel = Twist()
         self.latest_mode = RobotMode.REST
+        self.rest_recenter_pending = False
 
         self.desired_mode_topic = '/dingo_mode'
         self.filtered_cmd_vel_topic = '/cmd_vel'
@@ -93,18 +93,42 @@ class DingoDriver:
         #   +1.0 = top
         self.rest_height_center = node.declare_parameter(
             'rest_height_center',
-            self.config.default_z_ref
+            -0.17531
         ).value
 
         self.rest_height_min = node.declare_parameter(
             'rest_height_min',
-            self.rest_height_center - 0.02
+            self.rest_height_center - 0.06
         ).value
 
         self.rest_height_max = node.declare_parameter(
             'rest_height_max',
-            self.rest_height_center + 0.02
+            self.rest_height_center + 0.06
         ).value
+
+        self.rest_max_roll = float(node.declare_parameter('rest_max_roll', 0.20).value)
+        self.rest_max_pitch = float(node.declare_parameter('rest_max_pitch', 0.20).value)
+
+        # Optional speed slider for TROT.
+        # Axis options: linear.x, linear.y, linear.z, angular.x, angular.y, angular.z, none
+        self.trot_speed_slider_axis = str(
+            node.declare_parameter('trot_speed_slider_axis', 'angular.x').value
+        ).strip().lower()
+        self.trot_speed_min_scale = float(
+            node.declare_parameter('trot_speed_min_scale', 0.20).value
+        )
+        self.trot_speed_max_scale = float(
+            node.declare_parameter('trot_speed_max_scale', 1.00).value
+        )
+        self.trot_speed_slider_deadband = float(
+            node.declare_parameter('trot_speed_slider_deadband', 0.03).value
+        )
+
+        if self.trot_speed_min_scale > self.trot_speed_max_scale:
+            self.trot_speed_min_scale, self.trot_speed_max_scale = (
+                self.trot_speed_max_scale,
+                self.trot_speed_min_scale,
+            )
 
         # ---------------- CONTROLLER ----------------
         self.controller = Controller(self.config, four_legs_inverse_kinematics, node)
@@ -112,12 +136,11 @@ class DingoDriver:
 
         self.state.robot_mode = RobotMode.REST
         self.state.behavior_state = BehaviorState.REST
-        
-                # Use the already-stable startup height as the slider center
-        self.rest_height_center = float(self.state.height)
-        self.rest_height_min = self.rest_height_center + 0.08
-        self.rest_height_max = self.rest_height_center - 0.04
 
+        self.node.get_logger().info(
+            f"TROT speed slider axis={self.trot_speed_slider_axis}, "
+            f"scale=[{self.trot_speed_min_scale:.2f}, {self.trot_speed_max_scale:.2f}]"
+        )
 
         self.node.get_logger().info("✅ Dingo mode driver ready")
 
@@ -133,6 +156,8 @@ class DingoDriver:
             'lay_x_offsets': [-0.015, -0.015, 0.035, 0.035],
             'lay_y_offsets': [0.0, 0.0, 0.0, 0.0],
             'lay_z_offsets': [-0.24, -0.24, -0.24, -0.24],
+            'rest_x_offsets': [-0.010774, -0.010774, 0.0, 0.0],
+            'rest_y_offsets': [0.0, 0.0, 0.0, 0.0],
         }
 
         for name, default in defaults.items():
@@ -149,6 +174,8 @@ class DingoDriver:
             lay_x=self._param_vec('lay_x_offsets'),
             lay_y=self._param_vec('lay_y_offsets'),
             lay_z=self._param_vec('lay_z_offsets'),
+            rest_x=self._param_vec('rest_x_offsets'),
+            rest_y=self._param_vec('rest_y_offsets'),
         )
 
     # ---------------- CALLBACKS ----------------
@@ -161,6 +188,13 @@ class DingoDriver:
             return
 
         self.latest_mode = self._mode_map[mode]
+
+        if self.latest_mode == RobotMode.REST:
+            # Recenter height each time REST is explicitly requested.
+            self.rest_recenter_pending = True
+            # Avoid stale non-zero slider commands immediately undoing the recenter.
+            self.latest_cmd_vel.linear.z = 0.0
+
         self.node.get_logger().info(f"Mode -> {self.latest_mode.value}")
         self.publish_current_mode()
 
@@ -175,6 +209,36 @@ class DingoDriver:
     def update_emergency_stop_status(self, msg):
         self.state.currently_estopped = 1 if msg.data else 0
 
+    def _get_twist_axis_value(self, axis_name: str) -> float:
+        if axis_name == 'linear.x':
+            return float(self.latest_cmd_vel.linear.x)
+        if axis_name == 'linear.y':
+            return float(self.latest_cmd_vel.linear.y)
+        if axis_name == 'linear.z':
+            return float(self.latest_cmd_vel.linear.z)
+        if axis_name == 'angular.x':
+            return float(self.latest_cmd_vel.angular.x)
+        if axis_name == 'angular.y':
+            return float(self.latest_cmd_vel.angular.y)
+        if axis_name == 'angular.z':
+            return float(self.latest_cmd_vel.angular.z)
+        return 0.0
+
+    def _get_trot_speed_scale(self) -> float:
+        if self.trot_speed_slider_axis == 'none':
+            return 1.0
+
+        raw = float(np.clip(self._get_twist_axis_value(self.trot_speed_slider_axis), -1.0, 1.0))
+        if abs(raw) < self.trot_speed_slider_deadband:
+            raw = 0.0
+
+        # Map [-1, 1] -> [0, 1], then to [min_scale, max_scale]
+        normalized = 0.5 * (raw + 1.0)
+        scale = self.trot_speed_min_scale + normalized * (
+            self.trot_speed_max_scale - self.trot_speed_min_scale
+        )
+        return float(np.clip(scale, self.trot_speed_min_scale, self.trot_speed_max_scale))
+
     # ---------------- CORE ----------------
 
     def build_command(self):
@@ -185,6 +249,14 @@ class DingoDriver:
             self.latest_cmd_vel.linear.y
         ])
         command.yaw_rate = self.latest_cmd_vel.angular.z
+
+        if self.latest_mode == RobotMode.TROT:
+            speed_scale = self._get_trot_speed_scale()
+            command.horizontal_velocity *= speed_scale
+            command.yaw_rate *= speed_scale
+            self.state.speed_factor = speed_scale
+        else:
+            self.state.speed_factor = 1.0
 
         # Preserve current state by default
         command.height = self.state.height
@@ -209,10 +281,25 @@ class DingoDriver:
                     self.rest_height_min - self.rest_height_center
                 )
 
-        # Optional: keep pitch/roll only in REST for now
+        if self.latest_mode == RobotMode.REST and self.rest_recenter_pending:
+            command.height = float(self.rest_height_center)
+            self.rest_recenter_pending = False
+
+        # In REST, map cmd_vel inputs to body attitude while feet remain planted.
+        # This supports both angular-axis and linear-axis teleop layouts.
         if self.latest_mode == RobotMode.REST:
-            command.roll = np.clip(self.latest_cmd_vel.angular.x, -1.0, 1.0) * 0.10
-            command.pitch = np.clip(self.latest_cmd_vel.angular.y, -1.0, 1.0) * 0.10
+            roll_input = np.clip(
+                self.latest_cmd_vel.angular.x + self.latest_cmd_vel.linear.y,
+                -1.0,
+                1.0,
+            )
+            pitch_input = np.clip(
+                self.latest_cmd_vel.angular.y + self.latest_cmd_vel.linear.x,
+                -1.0,
+                1.0,
+            )
+            command.roll = roll_input * self.rest_max_roll
+            command.pitch = pitch_input * self.rest_max_pitch
 
         return command
 

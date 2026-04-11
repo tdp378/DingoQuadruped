@@ -123,7 +123,8 @@ class Controller:
                 self.config.max_stance_yaw_rate,
                 self.config.yaw_time_constant,
             )
-            foot_locations = self.config.default_stance + np.array([0, 0, command.height])[:, np.newaxis]
+            foot_locations = self.config.rest_stance.copy()
+            foot_locations[2, :] = command.height
             rotated_foot_locations = euler2mat(command.roll, command.pitch, self.smoothed_yaw) @ foot_locations
             rotated_foot_locations = self.stabilise_with_IMU(rotated_foot_locations, state.euler_orientation)
             state.foot_locations = foot_locations
