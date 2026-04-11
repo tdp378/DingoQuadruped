@@ -12,6 +12,7 @@ from sensor_msgs.msg import JointState
 
 # ===== SIM TOPICS (HARDCODED) =====
 MODE_TOPIC = '/dingo_mode'
+CURRENT_MODE_TOPIC = '/dingo/current_mode'
 RAW_TROT_TOPIC = '/dingo/trot_joint_commands'
 OUTPUT_TOPIC = '/leg_joint_position_controller/commands'
 JOINT_STATES_TOPIC = '/joint_states'
@@ -27,7 +28,7 @@ class DingoModeManager(Node):
 
         self.joint_names, self.poses = self.load_poses(poses_file)
 
-        self.static_modes = { 'sit', 'lay', }
+        self.static_modes = { 'sit', 'lay', 'stand' }
         self.dynamic_modes = {'trot', 'rest'}
         self.valid_modes = self.static_modes | self.dynamic_modes
 
@@ -39,6 +40,8 @@ class DingoModeManager(Node):
         self.current_pose = list(self.poses['rest'])
         self.target_pose = list(self.poses['rest'])
         self.step_count = self.transition_steps
+        self.pending_dynamic_mode = None
+        self.latest_driver_mode = 'rest'
 
         self.latest_joint_positions = None
         self.latest_walk_command = None
@@ -54,6 +57,13 @@ class DingoModeManager(Node):
             Float64MultiArray,
             RAW_TROT_TOPIC,
             self.walk_callback,
+            10
+        )
+
+        self.current_mode_sub = self.create_subscription(
+            String,
+            CURRENT_MODE_TOPIC,
+            self.current_mode_callback,
             10
         )
 
@@ -74,6 +84,7 @@ class DingoModeManager(Node):
 
         self.get_logger().info(f"Loaded poses from: {poses_file}")
         self.get_logger().info(f"Mode topic: {MODE_TOPIC}")
+        self.get_logger().info(f"Current mode topic: {CURRENT_MODE_TOPIC}")
         self.get_logger().info(f"Raw trot topic: {RAW_TROT_TOPIC}")
         self.get_logger().info(f"Output topic: {OUTPUT_TOPIC}")
         self.get_logger().info("Dingo Mode Manager ready.")
@@ -109,6 +120,29 @@ class DingoModeManager(Node):
             return
 
         if mode == self.current_mode:
+            return
+
+        if mode == 'trot' and self.current_mode not in {'stand', 'rest'}:
+            self.get_logger().warn(
+                f"Blocked transition: {self.current_mode} -> trot. Enter 'stand' or 'rest' before 'trot'."
+            )
+            return
+
+        if mode in self.dynamic_modes and self.current_mode in self.static_modes:
+            snap = self.get_best_current_pose()
+            if snap is not None:
+                self.current_pose = snap
+                self.get_logger().info("Using live pose snapshot for smooth transition.")
+            else:
+                self.get_logger().warn("No valid pose snapshot available; using last known pose.")
+
+            old_mode = self.current_mode
+            self.pending_dynamic_mode = mode
+            self.target_pose = None
+            self.step_count = 0
+            self.get_logger().info(
+                f"Transitioning smoothly to dynamic mode: {old_mode} -> {mode}"
+            )
             return
 
         old_mode = self.current_mode
@@ -149,11 +183,24 @@ class DingoModeManager(Node):
             if not any(math.isnan(x) or math.isinf(x) for x in ordered):
                 self.latest_joint_positions = ordered
 
+    def current_mode_callback(self, msg):
+        self.latest_driver_mode = msg.data.lower().strip()
+
     def walk_callback(self, msg):
         if len(msg.data) == len(self.joint_names):
             self.latest_walk_command = list(msg.data)
 
-        if self.current_mode in self.dynamic_modes:
+            if (
+                self.pending_dynamic_mode is not None
+                and self.target_pose is None
+                and self.latest_driver_mode == self.pending_dynamic_mode
+            ):
+                self.target_pose = list(msg.data)
+                self.get_logger().info(
+                    f"Captured live target for transition to: {self.pending_dynamic_mode}"
+                )
+
+        if self.current_mode in self.dynamic_modes and self.pending_dynamic_mode is None:
             self.cmd_pub.publish(msg)
 
     def get_best_current_pose(self):
@@ -166,7 +213,10 @@ class DingoModeManager(Node):
         return None
 
     def interpolation_loop(self):
-        if self.current_mode not in self.static_modes:
+        if self.current_mode not in self.static_modes and self.pending_dynamic_mode is None:
+            return
+
+        if self.target_pose is None:
             return
 
         if self.step_count < self.transition_steps:
@@ -182,6 +232,13 @@ class DingoModeManager(Node):
 
             if self.step_count == self.transition_steps:
                 self.current_pose = list(self.target_pose)
+                if self.pending_dynamic_mode is not None:
+                    old_mode = self.current_mode
+                    self.current_mode = self.pending_dynamic_mode
+                    self.pending_dynamic_mode = None
+                    self.get_logger().info(
+                        f"Mode change: {old_mode} -> {self.current_mode}"
+                    )
 
     def publish_angles(self, angles):
         if len(angles) != len(self.joint_names):

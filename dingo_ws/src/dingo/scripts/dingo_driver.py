@@ -183,6 +183,12 @@ class DingoDriver:
     def update_robot_mode(self, msg: String):
         mode = msg.data.strip().lower()
 
+        if mode == 'stand':
+            # Stand is handled by dingo_mode_manager static pose publishing.
+            # Keep driver mode unchanged so stand remains distinct from REST.
+            self.node.get_logger().info("Mode -> stand (handled by mode_manager)")
+            return
+
         if mode not in self._mode_map:
             self.node.get_logger().warn(f"Unknown mode: {mode}")
             return
@@ -305,7 +311,14 @@ class DingoDriver:
 
     def apply_mode(self):
         if self.latest_mode == RobotMode.TROT:
-            self.state.behavior_state = BehaviorState.TROT
+            # Transitioning from static poses directly into gait can leave the
+            # planner in a poor foot-state seed. Re-enter REST for one cycle,
+            # then switch to TROT on the next loop.
+            if self.state.behavior_state in (BehaviorState.SIT, BehaviorState.LAY):
+                self.state.behavior_state = BehaviorState.REST
+                self.rest_recenter_pending = True
+            else:
+                self.state.behavior_state = BehaviorState.TROT
         elif self.latest_mode == RobotMode.REST:
             self.state.behavior_state = BehaviorState.REST
         elif self.latest_mode == RobotMode.SIT:

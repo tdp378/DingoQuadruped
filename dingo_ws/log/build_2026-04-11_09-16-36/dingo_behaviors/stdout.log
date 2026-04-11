@@ -1,0 +1,20 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/lib/dingo_behaviors/mode_manager.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/launch/behaviors.launch.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/config/poses.yaml
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/ament_index/resource_index/package_run_dependencies/dingo_behaviors
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/ament_index/resource_index/parent_prefix_path/dingo_behaviors
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/environment/path.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/environment/path.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/local_setup.bash
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/local_setup.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/local_setup.zsh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/local_setup.dsv
+-- Symlinking: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/package.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/ament_index/resource_index/packages/dingo_behaviors
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/cmake/dingo_behaviorsConfig.cmake
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/cmake/dingo_behaviorsConfig-version.cmake
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_behaviors/share/dingo_behaviors/package.xml
