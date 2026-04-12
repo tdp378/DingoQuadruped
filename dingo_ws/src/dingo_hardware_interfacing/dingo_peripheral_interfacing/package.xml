@@ -13,8 +13,13 @@
   <depend>dingo_peripheral_msgs</depend>
   <depend>rclpy</depend>
   <depend>ament_index_python</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
 
   <exec_depend>python3-numpy</exec_depend>
+  <exec_depend>python3-pil</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>

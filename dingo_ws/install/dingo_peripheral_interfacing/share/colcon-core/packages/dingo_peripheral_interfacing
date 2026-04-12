@@ -1,1 +1,1 @@
-ament_index_python:dingo_peripheral_msgs:python3-numpy:rclpy
+ament_index_python:dingo_peripheral_msgs:geometry_msgs:nav_msgs:python3-numpy:python3-pil:rclpy:sensor_msgs:std_msgs

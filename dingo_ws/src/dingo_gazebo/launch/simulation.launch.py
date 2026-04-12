@@ -11,6 +11,7 @@ from launch.actions import (
     RegisterEventHandler,
     TimerAction,
 )
+from launch.conditions import IfCondition
 from launch.event_handlers import OnProcessExit
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
@@ -44,6 +45,25 @@ def generate_launch_description():
     # -----------------------------
     # Launch arguments
     # -----------------------------
+    use_mock_battery = LaunchConfiguration('use_mock_battery')
+    mock_battery_voltage = LaunchConfiguration('mock_battery_voltage')
+    mock_servo_buck_voltage = LaunchConfiguration('mock_servo_buck_voltage')
+    mock_battery_drain_per_second = LaunchConfiguration('mock_battery_drain_per_second')
+    use_cpu_temp = LaunchConfiguration('use_cpu_temp')
+    cpu_temp_c = LaunchConfiguration('cpu_temp_c')
+    cpu_temp_variance_c = LaunchConfiguration('cpu_temp_variance_c')
+    use_odom = LaunchConfiguration('use_odom')
+    odom_topic = LaunchConfiguration('odom_topic')
+    odom_cmd_vel_topic = LaunchConfiguration('odom_cmd_vel_topic')
+    odom_frame_id = LaunchConfiguration('odom_frame_id')
+    odom_base_frame_id = LaunchConfiguration('odom_base_frame_id')
+    odom_publish_rate_hz = LaunchConfiguration('odom_publish_rate_hz')
+    use_imu = LaunchConfiguration('use_imu')
+    use_mjpeg_server = LaunchConfiguration('use_mjpeg_server')
+    mjpeg_server_port = LaunchConfiguration('mjpeg_server_port')
+    mjpeg_server_frame_width = LaunchConfiguration('mjpeg_server_frame_width')
+    mjpeg_server_frame_height = LaunchConfiguration('mjpeg_server_frame_height')
+    mjpeg_server_frame_rate = LaunchConfiguration('mjpeg_server_frame_rate')
     spawn_z = LaunchConfiguration('spawn_z')
     spawn_delay = LaunchConfiguration('spawn_delay')
     controller_startup_seconds = LaunchConfiguration('controller_startup_seconds')
@@ -77,7 +97,8 @@ def generate_launch_description():
         package='ros_gz_bridge',
         executable='parameter_bridge',
         arguments=[
-            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'
+            '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
+            '/dingo/imu@sensor_msgs/msg/Imu[gz.msgs.IMU',
         ],
         output='screen',
     )
@@ -180,13 +201,13 @@ def generate_launch_description():
     # -----------------------------
     # dingo_driver.py:
     #   args = [is_sim, is_physical, use_imu]
-    # In sim we want: is_sim=1, is_physical=0, use_imu=0
+    # In sim we want: is_sim=1, is_physical=0, use_imu from launch arg.
     dingo_driver = Node(
         package='dingo',
         executable='dingo_driver.py',
         name='dingo_driver',
         output='screen',
-        arguments=['1', '0', '0'],
+        arguments=['1', '0', use_imu],
         parameters=[
             {
                 'use_sim_time': True,
@@ -207,7 +228,170 @@ def generate_launch_description():
         ],
     )
 
+    mock_battery_publisher = Node(
+        package='dingo_peripheral_interfacing',
+        executable='mock_battery_publisher.py',
+        name='mock_battery_publisher',
+        output='screen',
+        arguments=[],
+        parameters=[
+            {
+                'use_sim_time': True,
+                'battery_voltage_level': mock_battery_voltage,
+                'servo_buck_voltage_level': mock_servo_buck_voltage,
+                'drain_per_second': mock_battery_drain_per_second,
+            }
+        ],
+        condition=IfCondition(use_mock_battery),
+    )
+
+    cpu_temp_publisher = Node(
+        package='dingo_peripheral_interfacing',
+        executable='cpu_temp_publisher.py',
+        name='cpu_temp_publisher',
+        output='screen',
+        parameters=[
+            {
+                'use_sim_time': True,
+                'cpu_temp_c': cpu_temp_c,
+                'cpu_temp_variance_c': cpu_temp_variance_c,
+            }
+        ],
+        condition=IfCondition(use_cpu_temp),
+    )
+
+    odom_publisher = Node(
+        package='dingo_peripheral_interfacing',
+        executable='odom_publisher.py',
+        name='odom_publisher',
+        output='screen',
+        parameters=[
+            {
+                'use_sim_time': True,
+                'odom_topic': odom_topic,
+                'cmd_vel_topic': odom_cmd_vel_topic,
+                'odom_frame_id': odom_frame_id,
+                'base_frame_id': odom_base_frame_id,
+                'publish_rate_hz': odom_publish_rate_hz,
+            }
+        ],
+        condition=IfCondition(use_odom),
+    )
+
+    mock_mjpeg_server = Node(
+        package='dingo_peripheral_interfacing',
+        executable='mock_mjpeg_server.py',
+        name='mock_mjpeg_server',
+        output='screen',
+        parameters=[
+            {
+                'use_sim_time': True,
+                'host': '0.0.0.0',
+                'port': mjpeg_server_port,
+                'frame_width': mjpeg_server_frame_width,
+                'frame_height': mjpeg_server_frame_height,
+                'frame_rate': mjpeg_server_frame_rate,
+            }
+        ],
+        condition=IfCondition(use_mjpeg_server),
+    )
+
     return LaunchDescription([
+        DeclareLaunchArgument(
+            'use_mock_battery',
+            default_value='1',
+            description='Enable simulated battery voltage publisher.',
+        ),
+        DeclareLaunchArgument(
+            'mock_battery_voltage',
+            default_value='16.4',
+            description='Simulated battery voltage in volts.',
+        ),
+        DeclareLaunchArgument(
+            'mock_servo_buck_voltage',
+            default_value='5.0',
+            description='Simulated servo buck voltage in volts.',
+        ),
+        DeclareLaunchArgument(
+            'mock_battery_drain_per_second',
+            default_value='0.0',
+            description='Optional battery drain rate in volts per second.',
+        ),
+        DeclareLaunchArgument(
+            'use_cpu_temp',
+            default_value='1',
+            description='Enable simulated CPU temperature publisher.',
+        ),
+        DeclareLaunchArgument(
+            'cpu_temp_c',
+            default_value='54.0',
+            description='Simulated CPU temperature in celsius.',
+        ),
+        DeclareLaunchArgument(
+            'cpu_temp_variance_c',
+            default_value='0.5',
+            description='Alternating +/- variance around cpu_temp_c in celsius.',
+        ),
+        DeclareLaunchArgument(
+            'use_odom',
+            default_value='1',
+            description='Enable odometry publisher for simulation.',
+        ),
+        DeclareLaunchArgument(
+            'odom_topic',
+            default_value='/odom',
+            description='Odometry topic name.',
+        ),
+        DeclareLaunchArgument(
+            'odom_cmd_vel_topic',
+            default_value='/cmd_vel',
+            description='Input velocity topic used to generate odometry.',
+        ),
+        DeclareLaunchArgument(
+            'odom_frame_id',
+            default_value='odom',
+            description='Odometry frame id.',
+        ),
+        DeclareLaunchArgument(
+            'odom_base_frame_id',
+            default_value='base_link',
+            description='Base child frame id for odometry.',
+        ),
+        DeclareLaunchArgument(
+            'odom_publish_rate_hz',
+            default_value='30.0',
+            description='Odometry publish rate in Hz.',
+        ),
+        DeclareLaunchArgument(
+            'use_mjpeg_server',
+            default_value='1',
+            description='Enable mock MJPEG server for testing camera integration.',
+        ),
+        DeclareLaunchArgument(
+            'mjpeg_server_port',
+            default_value='8081',
+            description='Port for mock MJPEG server (accessible at http://localhost:<port>/video).',
+        ),
+        DeclareLaunchArgument(
+            'mjpeg_server_frame_width',
+            default_value='640',
+            description='Mock MJPEG frame width in pixels.',
+        ),
+        DeclareLaunchArgument(
+            'mjpeg_server_frame_height',
+            default_value='480',
+            description='Mock MJPEG frame height in pixels.',
+        ),
+        DeclareLaunchArgument(
+            'mjpeg_server_frame_rate',
+            default_value='30',
+            description='Mock MJPEG frame rate in Hz.',
+        ),
+        DeclareLaunchArgument(
+            'use_imu',
+            default_value='1',
+            description='Enable simulated IMU subscription in dingo_driver.',
+        ),
         DeclareLaunchArgument(
             'spawn_z',
             default_value='0.45',
@@ -271,5 +455,9 @@ def generate_launch_description():
         bridge,
         rosbridge,
         rosapi,
+        mock_battery_publisher,
+        cpu_temp_publisher,
+        odom_publisher,
+        mock_mjpeg_server,
         delayed_spawn,
     ])

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import argparse
+import math
 import time
 
 import numpy as np
@@ -7,6 +8,7 @@ import rclpy
 from geometry_msgs.msg import Twist
 from rclpy.node import Node
 from rclpy.utilities import remove_ros_args
+from sensor_msgs.msg import Imu
 from std_msgs.msg import Bool, Float64MultiArray, String
 
 from dingo_control.Command import Command
@@ -47,6 +49,7 @@ class DingoDriver:
         self.latest_cmd_vel = Twist()
         self.latest_mode = RobotMode.REST
         self.rest_recenter_pending = False
+        self._imu_sub = None
 
         self.desired_mode_topic = '/dingo_mode'
         self.filtered_cmd_vel_topic = '/cmd_vel'
@@ -137,6 +140,11 @@ class DingoDriver:
         self.state.robot_mode = RobotMode.REST
         self.state.behavior_state = BehaviorState.REST
 
+        if self.use_imu and self.is_sim:
+            imu_topic = node.declare_parameter('sim_imu_topic', '/dingo/imu').value
+            self._imu_sub = node.create_subscription(Imu, imu_topic, self.update_imu, 10)
+            self.node.get_logger().info(f'IMU enabled: subscribing to {imu_topic}')
+
         self.node.get_logger().info(
             f"TROT speed slider axis={self.trot_speed_slider_axis}, "
             f"scale=[{self.trot_speed_min_scale:.2f}, {self.trot_speed_max_scale:.2f}]"
@@ -214,6 +222,27 @@ class DingoDriver:
 
     def update_emergency_stop_status(self, msg):
         self.state.currently_estopped = 1 if msg.data else 0
+
+    def update_imu(self, msg: Imu):
+        q = msg.orientation
+
+        # Ignore empty/invalid quaternions often sent before sensor initialization.
+        if q.x == 0.0 and q.y == 0.0 and q.z == 0.0 and q.w == 0.0:
+            return
+
+        sinr_cosp = 2.0 * (q.w * q.x + q.y * q.z)
+        cosr_cosp = 1.0 - 2.0 * (q.x * q.x + q.y * q.y)
+        roll = math.atan2(sinr_cosp, cosr_cosp)
+
+        sinp = 2.0 * (q.w * q.y - q.z * q.x)
+        sinp = float(np.clip(sinp, -1.0, 1.0))
+        pitch = math.asin(sinp)
+
+        siny_cosp = 2.0 * (q.w * q.z + q.x * q.y)
+        cosy_cosp = 1.0 - 2.0 * (q.y * q.y + q.z * q.z)
+        yaw = math.atan2(siny_cosp, cosy_cosp)
+
+        self.state.euler_orientation = [yaw, pitch, roll]
 
     def _get_twist_axis_value(self, axis_name: str) -> float:
         if axis_name == 'linear.x':

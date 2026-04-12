@@ -1,0 +1,37 @@
+-- Found ament_cmake: 2.5.5 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Configuring done (0.3s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/tdp378/DingoQuadruped/dingo_ws/build/dingo_peripheral_interfacing
+Built target ament_cmake_python_symlink_dingo_peripheral_interfacing
+running egg_info
+writing dingo_peripheral_interfacing.egg-info/PKG-INFO
+writing dependency_links to dingo_peripheral_interfacing.egg-info/dependency_links.txt
+writing top-level names to dingo_peripheral_interfacing.egg-info/top_level.txt
+reading manifest file 'dingo_peripheral_interfacing.egg-info/SOURCES.txt'
+writing manifest file 'dingo_peripheral_interfacing.egg-info/SOURCES.txt'
+Built target ament_cmake_python_build_dingo_peripheral_interfacing_egg
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/pythonpath.sh
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/share/dingo_peripheral_interfacing/environment/pythonpath.dsv
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/PKG-INFO
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/SOURCES.txt
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/dependency_links.txt
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing-0.0.0-py3.12.egg-info/top_level.txt
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/IMU.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/__init__.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/python3.12/site-packages/dingo_peripheral_interfacing/imu_test.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/battery_voltage_checking.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/cpu_temp_publisher.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/dingo_lcd_interfacing.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/mock_battery_publisher.py
+-- Up-to-date symlink: /home/tdp378/DingoQuadruped/dingo_ws/install/dingo_peripheral_interfacing/lib/dingo_peripheral_interfacing/odom_publisher.py
+[31mCMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:209 (message):
+  ament_cmake_symlink_install_programs() can't find
+  '/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_hardware_interfacing/dingo_peripheral_interfacing/scripts/mock_mjpeg_server.py'
+Call Stack (most recent call first):
+  ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:331 (ament_cmake_symlink_install_programs)
+  cmake_install.cmake:46 (include)
+
+[0m

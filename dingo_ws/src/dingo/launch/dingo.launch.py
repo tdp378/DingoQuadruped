@@ -52,8 +52,8 @@ def generate_launch_description():
             condition=IfCondition(use_keyboard),
         ),
         Node(
-            package='dingo',
-            executable='dingo_mode_manager.py',
+            package='dingo_behaviors',
+            executable='mode_manager.py',
             name='dingo_mode_manager',
             output='screen',
             parameters=[behavior_config],
