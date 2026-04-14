@@ -11,19 +11,19 @@ from std_msgs.msg import String, Float64MultiArray
 from sensor_msgs.msg import JointState
 
 # ===== SIM TOPICS (HARDCODED) =====
-MODE_TOPIC = '/dingo_mode'
-CURRENT_MODE_TOPIC = '/dingo/current_mode'
-RAW_TROT_TOPIC = '/dingo/trot_joint_commands'
+MODE_TOPIC = '/jax_mode'
+CURRENT_MODE_TOPIC = '/jax/current_mode'
+RAW_TROT_TOPIC = '/jax/trot_joint_commands'
 OUTPUT_TOPIC = '/leg_joint_position_controller/commands'
 JOINT_STATES_TOPIC = '/joint_states'
 TRANSITION_STEPS = 50
 
 
-class DingoModeManager(Node):
+class JaxModeManager(Node):
     def __init__(self):
         super().__init__('mode_manager')
 
-        pkg_share = get_package_share_directory('dingo_behaviors')
+        pkg_share = get_package_share_directory('jax_behaviors')
         poses_file = os.path.join(pkg_share, 'config', 'poses.yaml')
 
         self.joint_names, self.poses = self.load_poses(poses_file)
@@ -87,7 +87,7 @@ class DingoModeManager(Node):
         self.get_logger().info(f"Current mode topic: {CURRENT_MODE_TOPIC}")
         self.get_logger().info(f"Raw trot topic: {RAW_TROT_TOPIC}")
         self.get_logger().info(f"Output topic: {OUTPUT_TOPIC}")
-        self.get_logger().info("Dingo Mode Manager ready.")
+        self.get_logger().info("Jax Mode Manager ready.")
 
     def load_poses(self, poses_file):
         with open(poses_file, 'r') as f:
@@ -252,7 +252,7 @@ class DingoModeManager(Node):
 
 def main():
     rclpy.init()
-    node = DingoModeManager()
+    node = JaxModeManager()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:

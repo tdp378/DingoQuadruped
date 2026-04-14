@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(dingo_behaviors)
+project(jax_behaviors)
 
 find_package(ament_cmake REQUIRED)
 

@@ -1,9 +1,9 @@
-from dingo_control.Gaits import GaitController
-from dingo_control.SwingLegController import SwingController
-from dingo_control.StanceController import StanceController
-from dingo_utilities.Utilities import clipped_first_order_filter
-from dingo_control.State import BehaviorState, State
-from dingo_control_msgs.msg import Angle, JointSpace, TaskSpace
+from jax_control.Gaits import GaitController
+from jax_control.SwingLegController import SwingController
+from jax_control.StanceController import StanceController
+from jax_utilities.Utilities import clipped_first_order_filter
+from jax_control.State import BehaviorState, State
+from jax_control_msgs.msg import Angle, JointSpace, TaskSpace
 
 import numpy as np
 from transforms3d.euler import euler2mat

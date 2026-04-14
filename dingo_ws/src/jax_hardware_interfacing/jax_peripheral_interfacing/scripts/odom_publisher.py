@@ -16,7 +16,7 @@ class OdomPublisher(Node):
         self._cmd_vel_topic = self.declare_parameter('cmd_vel_topic', '/cmd_vel').value
         self._odom_frame = self.declare_parameter('odom_frame_id', 'odom').value
         self._base_frame = self.declare_parameter('base_frame_id', 'base_link').value
-        self._current_mode_topic = self.declare_parameter('current_mode_topic', '/dingo/current_mode').value
+        self._current_mode_topic = self.declare_parameter('current_mode_topic', '/jax/current_mode').value
         self._rate_hz = float(self.declare_parameter('publish_rate_hz', 30.0).value)
         self._cmd_vel_timeout_s = float(self.declare_parameter('cmd_vel_timeout_s', 0.25).value)
 

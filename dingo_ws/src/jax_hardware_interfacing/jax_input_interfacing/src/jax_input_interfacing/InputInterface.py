@@ -1,8 +1,8 @@
 import numpy as np
 from rclpy.qos import qos_profile_sensor_data
-from dingo_control.State import BehaviorState, State
-from dingo_control.Command import Command
-from dingo_utilities.Utilities import deadband, clipped_first_order_filter
+from jax_control.State import BehaviorState, State
+from jax_control.Command import Command
+from jax_utilities.Utilities import deadband, clipped_first_order_filter
 from sensor_msgs.msg import Joy
 
 

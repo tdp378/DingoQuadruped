@@ -9,8 +9,8 @@ from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
-    pkg_share = get_package_share_directory('dingo_description')
-    default_model = os.path.join(pkg_share, 'urdf', 'dingo.urdf')
+    pkg_share = get_package_share_directory('jax_description')
+    default_model = os.path.join(pkg_share, 'urdf', 'jax.urdf')
 
     return LaunchDescription([
         DeclareLaunchArgument(

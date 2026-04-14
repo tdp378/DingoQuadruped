@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>dingo_utilities</name>
+  <name>jax_utilities</name>
   <version>0.0.0</version>
-  <description>Utility functions for Dingo</description>
+  <description>Utility functions for Jax</description>
   <maintainer email="alex@todo.todo">alex</maintainer>
   <license>TODO</license>
 

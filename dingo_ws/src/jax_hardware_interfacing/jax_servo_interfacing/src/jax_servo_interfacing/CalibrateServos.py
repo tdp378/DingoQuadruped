@@ -7,7 +7,7 @@ import math as m
 from ServoCalibrationDefinition import motor_config
 
 # FIRST define a new motor class
-Dingo  = motor_config()
+Jax  = motor_config()
 
 '''    HOW TO CALIBRATE THE MOTORS
 This is how the robot should look at the calibbration position of [0,0,90]
@@ -102,50 +102,50 @@ if len(sys.argv) > 1 and sys.argv[1] in servo_dict:
     servo_name = sys.argv[1]
 
     if servo_name != "relax":
-        print('DINGO: Motor ' + servo_name + ' moved to ' + servo_move + '.\n')
+        print('JAX: Motor ' + servo_name + ' moved to ' + servo_move + '.\n')
     else:
-        print('DINGO: Motors Relaxed.\n')
+        print('JAX: Motors Relaxed.\n')
 
 if servo_name == "fr" or servo_name == "all":
-    Dingo.moveAbsAngle(Dingo.front_right_hip  ,offsets[0,0]+pos[0])
-    Dingo.moveAbsAngle(Dingo.front_right_upper,offsets[1,0]+pos[1])
-    Dingo.moveAbsAngle(Dingo.front_right_lower,offsets[2,0]+pos[2])
+    Jax.moveAbsAngle(Jax.front_right_hip  ,offsets[0,0]+pos[0])
+    Jax.moveAbsAngle(Jax.front_right_upper,offsets[1,0]+pos[1])
+    Jax.moveAbsAngle(Jax.front_right_lower,offsets[2,0]+pos[2])
 
 if servo_name == "fl" or servo_name == "all":
-    Dingo.moveAbsAngle(Dingo.front_left_hip   ,offsets[0,1]+pos[0])
-    Dingo.moveAbsAngle(Dingo.front_left_upper ,offsets[1,1]+pos[1])
-    Dingo.moveAbsAngle(Dingo.front_left_lower ,offsets[2,1]+pos[2])
+    Jax.moveAbsAngle(Jax.front_left_hip   ,offsets[0,1]+pos[0])
+    Jax.moveAbsAngle(Jax.front_left_upper ,offsets[1,1]+pos[1])
+    Jax.moveAbsAngle(Jax.front_left_lower ,offsets[2,1]+pos[2])
 
 if servo_name == "br" or servo_name == "all":
-    Dingo.moveAbsAngle(Dingo.back_right_hip   ,offsets[0,2]+pos[0])
-    Dingo.moveAbsAngle(Dingo.back_right_upper ,offsets[1,2]+pos[1])
-    Dingo.moveAbsAngle(Dingo.back_right_lower ,offsets[2,2]+pos[2])
+    Jax.moveAbsAngle(Jax.back_right_hip   ,offsets[0,2]+pos[0])
+    Jax.moveAbsAngle(Jax.back_right_upper ,offsets[1,2]+pos[1])
+    Jax.moveAbsAngle(Jax.back_right_lower ,offsets[2,2]+pos[2])
 
 if servo_name == "bl" or servo_name == "all":
-    Dingo.moveAbsAngle(Dingo.back_left_hip    ,offsets[0,3]+pos[0])
-    Dingo.moveAbsAngle(Dingo.back_left_upper  ,offsets[1,3]+pos[1])
-    Dingo.moveAbsAngle(Dingo.back_left_lower  ,offsets[2,3]+pos[2])
+    Jax.moveAbsAngle(Jax.back_left_hip    ,offsets[0,3]+pos[0])
+    Jax.moveAbsAngle(Jax.back_left_upper  ,offsets[1,3]+pos[1])
+    Jax.moveAbsAngle(Jax.back_left_lower  ,offsets[2,3]+pos[2])
 
 if servo_name == "relax":
-    Dingo.relax_all_motors()
+    Jax.relax_all_motors()
 
 # NOTE: It may be convenient to comment out some of the lines below to test individual motos/ legs
 
 # FRONT RIGHT LEG
-# Dingo.moveAbsAngle(Dingo.front_right_hip  ,offsets[0,0]+pos[0])
-# Dingo.moveAbsAngle(Dingo.front_right_upper,offsets[1,0]+pos[1])
-# Dingo.moveAbsAngle(Dingo.front_right_lower,offsets[2,0]+pos[2])
+# Jax.moveAbsAngle(Jax.front_right_hip  ,offsets[0,0]+pos[0])
+# Jax.moveAbsAngle(Jax.front_right_upper,offsets[1,0]+pos[1])
+# Jax.moveAbsAngle(Jax.front_right_lower,offsets[2,0]+pos[2])
 # FRONT LEFT LEG
-# Dingo.moveAbsAngle(Dingo.front_left_hip   ,offsets[0,1]+pos[0])
-# Dingo.moveAbsAngle(Dingo.front_left_upper ,offsets[1,1]+pos[1])
-# Dingo.moveAbsAngle(Dingo.front_left_lower ,offsets[2,1]+pos[2])
+# Jax.moveAbsAngle(Jax.front_left_hip   ,offsets[0,1]+pos[0])
+# Jax.moveAbsAngle(Jax.front_left_upper ,offsets[1,1]+pos[1])
+# Jax.moveAbsAngle(Jax.front_left_lower ,offsets[2,1]+pos[2])
 # BACK RIGHT LEG
-# Dingo.moveAbsAngle(Dingo.back_right_hip   ,offsets[0,2]+pos[0])
-# Dingo.moveAbsAngle(Dingo.back_right_upper ,offsets[1,2]+pos[1])
-# Dingo.moveAbsAngle(Dingo.back_right_lower ,offsets[2,2]+pos[2])
+# Jax.moveAbsAngle(Jax.back_right_hip   ,offsets[0,2]+pos[0])
+# Jax.moveAbsAngle(Jax.back_right_upper ,offsets[1,2]+pos[1])
+# Jax.moveAbsAngle(Jax.back_right_lower ,offsets[2,2]+pos[2])
 # BACK LEFT LEG
-# Dingo.moveAbsAngle(Dingo.back_left_hip    ,offsets[0,3]+pos[0])
-# Dingo.moveAbsAngle(Dingo.back_left_upper  ,offsets[1,3]+pos[1])
-# Dingo.moveAbsAngle(Dingo.back_left_lower  ,offsets[2,3]+pos[2])
+# Jax.moveAbsAngle(Jax.back_left_hip    ,offsets[0,3]+pos[0])
+# Jax.moveAbsAngle(Jax.back_left_upper  ,offsets[1,3]+pos[1])
+# Jax.moveAbsAngle(Jax.back_left_lower  ,offsets[2,3]+pos[2])
 
 

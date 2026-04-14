@@ -2,7 +2,7 @@
 import rclpy
 from rclpy.node import Node
 
-from dingo_peripheral_msgs.msg import ElectricalMeasurements
+from jax_peripheral_msgs.msg import ElectricalMeasurements
 from sensor_msgs.msg import BatteryState
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>dingo_servo_interfacing</name>
+  <name>jax_servo_interfacing</name>
   <version>0.0.0</version>
-  <description>Servo hardware interface for Dingo</description>
+  <description>Servo hardware interface for Jax</description>
   <maintainer email="alex@todo.todo">alex</maintainer>
   <license>TODO</license>
 

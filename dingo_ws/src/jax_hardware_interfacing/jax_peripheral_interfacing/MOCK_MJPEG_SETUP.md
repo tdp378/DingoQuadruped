@@ -7,7 +7,7 @@ The simulation now includes a mock MJPEG video server that allows you to test yo
 Launch the simulation with default settings:
 
 ```bash
-ros2 launch dingo_gazebo simulation.launch.py
+ros2 launch jax_gazebo simulation.launch.py
 ```
 
 By default, the mock MJPEG server will start on **`http://localhost:8081/video`**.
@@ -32,17 +32,17 @@ You can customize the mock server parameters when launching:
 
 ```bash
 # Change video resolution and frame rate
-ros2 launch dingo_gazebo simulation.launch.py \
+ros2 launch jax_gazebo simulation.launch.py \
   mjpeg_server_frame_width:=1280 \
   mjpeg_server_frame_height:=720 \
   mjpeg_server_frame_rate:=60
 
 # Change the server port
-ros2 launch dingo_gazebo simulation.launch.py \
+ros2 launch jax_gazebo simulation.launch.py \
   mjpeg_server_port:=8082
 
 # Disable the server entirely
-ros2 launch dingo_gazebo simulation.launch.py \
+ros2 launch jax_gazebo simulation.launch.py \
   use_mjpeg_server:=0
 ```
 

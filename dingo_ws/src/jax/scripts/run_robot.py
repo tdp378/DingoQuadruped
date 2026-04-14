@@ -10,11 +10,11 @@ import rclpy
 from rclpy.utilities import remove_ros_args
 from std_msgs.msg import Float64
 
-from dingo_control.Config import Configuration, Leg_linkage
-from dingo_control.Controller import Controller
-from dingo_control.Kinematics import four_legs_inverse_kinematics
-from dingo_control.State import State
-from dingo_input_interfacing.InputInterface import InputController, InputInterface
+from jax_control.Config import Configuration, Leg_linkage
+from jax_control.Controller import Controller
+from jax_control.Kinematics import four_legs_inverse_kinematics
+from jax_control.State import State
+from jax_input_interfacing.InputInterface import InputController, InputInterface
 
 
 def parse_args(argv):
@@ -34,7 +34,7 @@ def main(use_imu=False):
     is_physical = args.is_physical
 
     rclpy.init()
-    node = rclpy.create_node('dingo')
+    node = rclpy.create_node('jax')
     message_rate = 50
     rate = node.create_rate(message_rate)
 
@@ -63,12 +63,12 @@ def main(use_imu=False):
     hardware_interface = None
     imu = None
     if is_physical:
-        from dingo_servo_interfacing.HardwareInterface import HardwareInterface
+        from jax_servo_interfacing.HardwareInterface import HardwareInterface
 
         linkage = Leg_linkage(config)
         hardware_interface = HardwareInterface(linkage)
     if use_imu:
-        from dingo_peripheral_interfacing.IMU import IMU
+        from jax_peripheral_interfacing.IMU import IMU
 
         imu = IMU()
 

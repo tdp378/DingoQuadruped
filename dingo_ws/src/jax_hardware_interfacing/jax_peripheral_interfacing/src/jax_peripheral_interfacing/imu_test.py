@@ -3,7 +3,7 @@ import board
 import adafruit_bno055
 
 ''' THis script can be used to test outputs from the adafruit bno055 Absolute Orinetation IMU
-mounted on board the Dingo. '''
+mounted on board the Jax. '''
 
 i2c = board.I2C()  # uses board.SCL and board.SDA
 sensor = adafruit_bno055.BNO055_I2C(i2c)

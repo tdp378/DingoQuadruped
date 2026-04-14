@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-package_name = 'dingo_utilities'
+package_name = 'jax_utilities'
 
 setup(
     name=package_name,
@@ -15,6 +15,6 @@ setup(
     zip_safe=True,
     maintainer='alex',
     maintainer_email='alex@todo.todo',
-    description='Utility functions for Dingo',
+    description='Utility functions for Jax',
     license='TODO',
 )

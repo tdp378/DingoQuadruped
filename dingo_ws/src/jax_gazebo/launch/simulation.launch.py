@@ -20,20 +20,20 @@ from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    desc_share = get_package_share_directory('dingo_description')
+    desc_share = get_package_share_directory('jax_description')
     gz_model_path = os.path.dirname(desc_share)
     pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
-    dingo_gazebo_share = get_package_share_directory('dingo_gazebo')
-    dingo_share = get_package_share_directory('dingo')
+    jax_gazebo_share = get_package_share_directory('jax_gazebo')
+    jax_share = get_package_share_directory('jax')
 
-    world_path = os.path.join(dingo_gazebo_share, 'launch', 'world', 'normal.world')
-    ctrl_yaml_path = os.path.join(dingo_gazebo_share, 'config', 'dingo_gz_ros2_control.yaml')
-    behaviors_yaml_path = os.path.join(dingo_share, 'config', 'behaviors.yaml')
+    world_path = os.path.join(jax_gazebo_share, 'launch', 'world', 'normal.world')
+    ctrl_yaml_path = os.path.join(jax_gazebo_share, 'config', 'jax_gz_ros2_control.yaml')
+    behaviors_yaml_path = os.path.join(jax_share, 'config', 'behaviors.yaml')
 
-    robot_description_path = os.path.join(desc_share, 'urdf', 'dingo.urdf')
+    robot_description_path = os.path.join(desc_share, 'urdf', 'jax.urdf')
     robot_description_config = xacro.process_file(robot_description_path)
     desc_xml = robot_description_config.toxml().replace(
-        '__DINGO_GZ_ROS2_CONTROL_YAML__',
+        '__JAX_GZ_ROS2_CONTROL_YAML__',
         ctrl_yaml_path,
     )
 
@@ -67,7 +67,7 @@ def generate_launch_description():
     spawn_z = LaunchConfiguration('spawn_z')
     spawn_delay = LaunchConfiguration('spawn_delay')
     controller_startup_seconds = LaunchConfiguration('controller_startup_seconds')
-    dingo_stack_startup_seconds = LaunchConfiguration('dingo_stack_startup_seconds')
+    jax_stack_startup_seconds = LaunchConfiguration('jax_stack_startup_seconds')
 
     # -----------------------------
     # Gazebo
@@ -98,7 +98,7 @@ def generate_launch_description():
         executable='parameter_bridge',
         arguments=[
             '/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock',
-            '/dingo/imu@sensor_msgs/msg/Imu[gz.msgs.IMU',
+            '/jax/imu@sensor_msgs/msg/Imu[gz.msgs.IMU',
         ],
         output='screen',
     )
@@ -136,7 +136,7 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'world': 'default',
-            'name': 'dingo',
+            'name': 'jax',
             'topic': 'robot_description',
             'x': 0.0,
             'y': 0.0,
@@ -153,9 +153,9 @@ def generate_launch_description():
     # ros2_control controller config
     # -----------------------------
     ctrl_file = PathJoinSubstitution([
-        FindPackageShare('dingo_gazebo'),
+        FindPackageShare('jax_gazebo'),
         'config',
-        'dingo_gz_ros2_control.yaml',
+        'jax_gz_ros2_control.yaml',
     ])
 
     joint_state_broadcaster_spawner = Node(
@@ -197,29 +197,29 @@ def generate_launch_description():
     )
 
     # -----------------------------
-    # Dingo control stack
+    # Jax control stack
     # -----------------------------
-    # dingo_driver.py:
+    # jax_driver.py:
     #   args = [is_sim, is_physical, use_imu]
     # In sim we want: is_sim=1, is_physical=0, use_imu from launch arg.
-    dingo_driver = Node(
-        package='dingo',
-        executable='dingo_driver.py',
-        name='dingo_driver',
+    jax_driver = Node(
+        package='jax',
+        executable='jax_driver.py',
+        name='jax_driver',
         output='screen',
         arguments=['1', '0', use_imu],
         parameters=[
             {
                 'use_sim_time': True,
-                'gz_leg_command_topic': '/dingo/trot_joint_commands',
+                'gz_leg_command_topic': '/jax/trot_joint_commands',
             },
                    ],
     )
 
-    dingo_mode_manager = Node(
-        package='dingo_behaviors',
+    jax_mode_manager = Node(
+        package='jax_behaviors',
         executable='mode_manager.py',
-        name='dingo_mode_manager',
+        name='jax_mode_manager',
         output='screen',
         parameters=[
             {
@@ -229,7 +229,7 @@ def generate_launch_description():
     )
 
     mock_battery_publisher = Node(
-        package='dingo_peripheral_interfacing',
+        package='jax_peripheral_interfacing',
         executable='mock_battery_publisher.py',
         name='mock_battery_publisher',
         output='screen',
@@ -246,7 +246,7 @@ def generate_launch_description():
     )
 
     cpu_temp_publisher = Node(
-        package='dingo_peripheral_interfacing',
+        package='jax_peripheral_interfacing',
         executable='cpu_temp_publisher.py',
         name='cpu_temp_publisher',
         output='screen',
@@ -261,7 +261,7 @@ def generate_launch_description():
     )
 
     odom_publisher = Node(
-        package='dingo_peripheral_interfacing',
+        package='jax_peripheral_interfacing',
         executable='odom_publisher.py',
         name='odom_publisher',
         output='screen',
@@ -279,7 +279,7 @@ def generate_launch_description():
     )
 
     mock_mjpeg_server = Node(
-        package='dingo_peripheral_interfacing',
+        package='jax_peripheral_interfacing',
         executable='mock_mjpeg_server.py',
         name='mock_mjpeg_server',
         output='screen',
@@ -390,7 +390,7 @@ def generate_launch_description():
         DeclareLaunchArgument(
             'use_imu',
             default_value='1',
-            description='Enable simulated IMU subscription in dingo_driver.',
+            description='Enable simulated IMU subscription in jax_driver.',
         ),
         DeclareLaunchArgument(
             'spawn_z',
@@ -411,10 +411,10 @@ def generate_launch_description():
             ),
         ),
         DeclareLaunchArgument(
-            'dingo_stack_startup_seconds',
+            'jax_stack_startup_seconds',
             default_value='10.0',
             description=(
-                'Seconds after launch to start dingo_driver and dingo_mode_manager. '
+                'Seconds after launch to start jax_driver and jax_mode_manager. '
                 'Set later than controller startup so the controller is ready first.'
             ),
         ),
@@ -446,8 +446,8 @@ def generate_launch_description():
 
         # Start semantic control stack after controllers are up
         TimerAction(
-            period=dingo_stack_startup_seconds,
-            actions=[dingo_driver, dingo_mode_manager],
+            period=jax_stack_startup_seconds,
+            actions=[jax_driver, jax_mode_manager],
         ),
 
         gz_sim,

@@ -20,9 +20,9 @@ def generate_launch_description():
         DeclareLaunchArgument('use_imu', default_value='0'),
 
         Node(
-            package='dingo_peripheral_interfacing',
+            package='jax_peripheral_interfacing',
             executable='jax_display_node.py',
-            name='dingo_LCD_node',
+            name='jax_LCD_node',
             output='screen',
             condition=IfCondition(is_physical),
         ),
@@ -34,7 +34,7 @@ def generate_launch_description():
             condition=IfCondition(use_joystick),
         ),
         Node(
-            package='dingo_input_interfacing',
+            package='jax_input_interfacing',
             executable='Keyboard.py',
             name='keyboard_input_listener',
             output='screen',
@@ -43,15 +43,15 @@ def generate_launch_description():
             condition=IfCondition(use_keyboard),
         ),
         Node(
-            package='dingo_behaviors',
+            package='jax_behaviors',
             executable='mode_manager.py',
-            name='dingo_mode_manager',
+            name='jax_mode_manager',
             output='screen',
         ),
         Node(
-            package='dingo',
-            executable='dingo_driver.py',
-            name='dingo_driver',
+            package='jax',
+            executable='jax_driver.py',
+            name='jax_driver',
             output='screen',
             arguments=[is_sim, is_physical, use_imu],
         ),

@@ -262,9 +262,9 @@ def impose_physical_limits(desired_joint_angles):
 ################################# TESING HARDWARE INTERFACING ############################
 """ This section can be used to test this hardware interfacing by running this script only and supplying 
     angles for the legs in the joint space. Uncomment and then run using the command: 
-                        rosrun dingo_servo_interfacing HardwareInterface.py  
+                        rosrun jax_servo_interfacing HardwareInterface.py  
 """
-# from dingo_control.Config import Configuration,Leg_linkage
+# from jax_control.Config import Configuration,Leg_linkage
 
 # configuration = Configuration()
 # linkage = Leg_linkage(configuration)

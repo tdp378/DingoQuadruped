@@ -15,7 +15,7 @@ from sensor_msgs.msg import Joy
 from pynput import keyboard as kb
 
 HELP = """\
-=== Dingo Keyboard ===
+=== Jax Keyboard ===
  W/S     forward / back
  A/D     strafe left / right
  Arrows  pitch (up/down) / yaw (left/right)

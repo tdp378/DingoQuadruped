@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(dingo_peripheral_msgs)
+project(jax_peripheral_msgs)
 
 find_package(ament_cmake REQUIRED)
 find_package(rosidl_default_generators REQUIRED)

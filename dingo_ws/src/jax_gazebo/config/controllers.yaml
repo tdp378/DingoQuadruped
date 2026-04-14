@@ -1,4 +1,4 @@
-dingo_controller:
+jax_controller:
   
   joint_states_controller:
       type: joint_state_controller/JointStateController

@@ -11,12 +11,12 @@ from rclpy.utilities import remove_ros_args
 from sensor_msgs.msg import Imu
 from std_msgs.msg import Bool, Float64MultiArray, String
 
-from dingo_control.Command import Command
-from dingo_control.Config import Configuration, Leg_linkage
-from dingo_control.Controller import Controller
-from dingo_control.Kinematics import four_legs_inverse_kinematics
-from dingo_control.State import BehaviorState, RobotMode, State
-from dingo_control_msgs.msg import JointSpace, TaskSpace
+from jax_control.Command import Command
+from jax_control.Config import Configuration, Leg_linkage
+from jax_control.Controller import Controller
+from jax_control.Kinematics import four_legs_inverse_kinematics
+from jax_control.State import BehaviorState, RobotMode, State
+from jax_control_msgs.msg import JointSpace, TaskSpace
 
 
 def parse_driver_args(argv):
@@ -27,7 +27,7 @@ def parse_driver_args(argv):
     return parser.parse_args(remove_ros_args(argv)[1:])
 
 
-class DingoDriver:
+class JaxDriver:
     def __init__(self, is_sim, is_physical, use_imu, node: Node):
         self.node = node
         self.message_rate = 50
@@ -51,11 +51,11 @@ class DingoDriver:
         self.rest_recenter_pending = False
         self._imu_sub = None
 
-        self.desired_mode_topic = '/dingo_mode'
+        self.desired_mode_topic = '/jax_mode'
         self.filtered_cmd_vel_topic = '/cmd_vel'
 
         self.current_mode_topic = node.declare_parameter(
-            'current_mode_topic', '/dingo/current_mode'
+            'current_mode_topic', '/jax/current_mode'
         ).value
 
         self._current_mode_pub = node.create_publisher(String, self.current_mode_topic, 10)
@@ -79,7 +79,7 @@ class DingoDriver:
         self._sim_leg_cmds_pub = None
         if self.is_sim:
             # 👉 SEND TROT OUTPUT TO RAW TOPIC (mode manager will take over final output)
-            gz_leg_topic = '/dingo/trot_joint_commands'
+            gz_leg_topic = '/jax/trot_joint_commands'
 
             self._sim_leg_cmds_pub = node.create_publisher(
                 Float64MultiArray, gz_leg_topic, 10
@@ -141,7 +141,7 @@ class DingoDriver:
         self.state.behavior_state = BehaviorState.REST
 
         if self.use_imu and self.is_sim:
-            imu_topic = node.declare_parameter('sim_imu_topic', '/dingo/imu').value
+            imu_topic = node.declare_parameter('sim_imu_topic', '/jax/imu').value
             self._imu_sub = node.create_subscription(Imu, imu_topic, self.update_imu, 10)
             self.node.get_logger().info(f'IMU enabled: subscribing to {imu_topic}')
 
@@ -150,7 +150,7 @@ class DingoDriver:
             f"scale=[{self.trot_speed_min_scale:.2f}, {self.trot_speed_max_scale:.2f}]"
         )
 
-        self.node.get_logger().info("✅ Dingo mode driver ready")
+        self.node.get_logger().info("✅ Jax mode driver ready")
 
         self.publish_current_mode()
 
@@ -192,7 +192,7 @@ class DingoDriver:
         mode = msg.data.strip().lower()
 
         if mode == 'stand':
-            # Stand is handled by dingo_mode_manager static pose publishing.
+            # Stand is handled by jax_mode_manager static pose publishing.
             # Keep driver mode unchanged so stand remains distinct from REST.
             self.node.get_logger().info("Mode -> stand (handled by mode_manager)")
             return
@@ -303,7 +303,7 @@ class DingoDriver:
         #    0.0 = center
         #   +1.0 = top
         #
-        # Use it in BOTH REST and TROT so gait can adapt like old Dingo did.
+        # Use it in BOTH REST and TROT so gait can adapt like old Jax did.
         if self.latest_mode in (RobotMode.REST, RobotMode.TROT):
             slider = float(np.clip(self.latest_cmd_vel.linear.z, -1.0, 1.0))
 
@@ -392,10 +392,10 @@ def main(args=None):
     parsed = parse_driver_args(argv)
 
     rclpy.init(args=args)
-    node = rclpy.create_node('dingo_driver')
+    node = rclpy.create_node('jax_driver')
 
     try:
-        driver = DingoDriver(parsed.is_sim, parsed.is_physical, parsed.use_imu, node)
+        driver = JaxDriver(parsed.is_sim, parsed.is_physical, parsed.use_imu, node)
         driver.run()
     except KeyboardInterrupt:
         pass

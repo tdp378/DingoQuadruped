@@ -1,6 +1,6 @@
 """Keyboard smoke test: publishes geometry_msgs/Twist on /cmd_vel.
 
-Dingo leg control uses /joy + dingo_driver, not cmd_vel — use this only to verify
+Jax leg control uses /joy + jax_driver, not cmd_vel — use this only to verify
 keyboard → ROS (e.g. ``ros2 topic echo /cmd_vel`` in another terminal).
 
 Requires: ``sudo apt install ros-jazzy-teleop-twist-keyboard``

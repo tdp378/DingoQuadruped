@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Map geometry_msgs/Twist (/cmd_vel) -> sensor_msgs/Joy on /joy for dingo_driver.
+"""Map geometry_msgs/Twist (/cmd_vel) -> sensor_msgs/Joy on /joy for jax_driver.
 
 teleop_twist_keyboard (and similar) publish Twist; the quadruped stack expects Joy axes
 matching InputInterface (axes[1]=forward, axes[0]=strafe, axes[3]=yaw rate).
@@ -39,7 +39,7 @@ class CmdVelToJoyBridge(Node):
         self.create_timer(1.0 / rate, self._tick)
         self.get_logger().info(
             f'Bridging Twist from {in_topic!r} -> /joy '
-            f'(match dingo_control.Config max lin x/y, yaw)'
+            f'(match jax_control.Config max lin x/y, yaw)'
         )
 
     def _cb(self, msg: Twist):

@@ -10,7 +10,7 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource([
                 PathJoinSubstitution([
-                    FindPackageShare('dingo_gazebo'),
+                    FindPackageShare('jax_gazebo'),
                     'launch',
                     'simulation.launch.py',
                 ]),

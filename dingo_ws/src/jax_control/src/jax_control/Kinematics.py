@@ -3,7 +3,7 @@ from numpy.linalg import inv, norm
 from numpy import asarray, matrix
 from math import *
 #import matplotlib.pyplot as plt
-from dingo_control.util import RotMatrix3D, point_to_rad
+from jax_control.util import RotMatrix3D, point_to_rad
 from transforms3d.euler import euler2mat
 import logging
 
@@ -18,7 +18,7 @@ def leg_explicit_inverse_kinematics(r_body_foot, leg_index, config):
     leg_index : int
         The index of the leg (0-3), which represents which leg it is. 0 = Front left, 1 = Front right, 2 = Rear left, 3 = Rear right
     config : Configuration class
-        Configuration class which contains all of the parameters of the Dingo (link lengths, max velocities, etc)
+        Configuration class which contains all of the parameters of the Jax (link lengths, max velocities, etc)
     
     Returns
     -------
@@ -137,7 +137,7 @@ def forward_kinematics(angles, config, is_right = 0):
     angles : numpy array (3)
         desired joint angles: theta1, theta2, theta3 
     config : Configuration class
-        Configuration class which contains all of the parameters of the Dingo (link lengths, max velocities, etc)
+        Configuration class which contains all of the parameters of the Jax (link lengths, max velocities, etc)
     is_right : int
         An integer indicating whether the leg is a left or right leg
     
