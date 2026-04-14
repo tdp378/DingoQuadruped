@@ -1,8 +1,0 @@
-source;share/dingo/hook/cmake_prefix_path.dsv
-source;share/dingo/hook/cmake_prefix_path.sh
-source;share/dingo/hook/pythonpath.dsv
-source;share/dingo/hook/pythonpath.sh
-source;share/dingo/local_setup.bash
-source;share/dingo/local_setup.dsv
-source;share/dingo/local_setup.sh
-source;share/dingo/local_setup.zsh

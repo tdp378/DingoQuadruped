@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_hardware_interfacing/dingo_peripheral_interfacing/scripts/battery_voltage_checking.py

@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_peripheral_msgs/rosidl_typesupport_fastrtps_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__rosidl_typesupport_fastrtps_c.h

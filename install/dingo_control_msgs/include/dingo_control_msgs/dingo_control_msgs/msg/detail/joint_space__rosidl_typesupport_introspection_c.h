@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_control_msgs/rosidl_typesupport_introspection_c/dingo_control_msgs/msg/detail/joint_space__rosidl_typesupport_introspection_c.h

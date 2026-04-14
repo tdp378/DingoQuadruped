@@ -1,7 +1,0 @@
-{
-  "package_name": "dingo_peripheral_msgs",
-  "output_dir": "/home/tdp378/DingoQuadruped/build/dingo_peripheral_msgs/rosidl_generator_type_description/dingo_peripheral_msgs",
-  "idl_tuples": [
-    "/home/tdp378/DingoQuadruped/build/dingo_peripheral_msgs/rosidl_adapter/dingo_peripheral_msgs:msg/ElectricalMeasurements.idl"
-  ]
-}

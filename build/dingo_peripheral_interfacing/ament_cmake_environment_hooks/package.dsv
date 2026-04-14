@@ -1,4 +1,0 @@
-source;share/dingo_peripheral_interfacing/local_setup.bash
-source;share/dingo_peripheral_interfacing/local_setup.dsv
-source;share/dingo_peripheral_interfacing/local_setup.sh
-source;share/dingo_peripheral_interfacing/local_setup.zsh

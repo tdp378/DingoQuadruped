@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_control_msgs/rosidl_typesupport_introspection_cpp/dingo_control_msgs/msg/detail/angle__rosidl_typesupport_introspection_cpp.hpp

@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_peripheral_msgs/rosidl_generator_c/dingo_peripheral_msgs/msg/detail/electrical_measurements__type_support.h

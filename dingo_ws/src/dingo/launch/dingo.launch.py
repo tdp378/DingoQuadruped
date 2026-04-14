@@ -1,9 +1,8 @@
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.conditions import IfCondition
-from launch.substitutions import LaunchConfiguration, PathJoinSubstitution
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
@@ -12,13 +11,6 @@ def generate_launch_description():
     use_joystick = LaunchConfiguration('use_joystick')
     use_keyboard = LaunchConfiguration('use_keyboard')
     use_imu = LaunchConfiguration('use_imu')
-    behavior_config = LaunchConfiguration('behavior_config')
-
-    default_behavior_config = PathJoinSubstitution([
-        FindPackageShare('dingo'),
-        'config',
-        'behaviors.yaml',
-    ])
 
     return LaunchDescription([
         DeclareLaunchArgument('is_sim', default_value='0'),
@@ -26,11 +18,10 @@ def generate_launch_description():
         DeclareLaunchArgument('use_joystick', default_value='0'),
         DeclareLaunchArgument('use_keyboard', default_value='0'),
         DeclareLaunchArgument('use_imu', default_value='0'),
-        DeclareLaunchArgument('behavior_config', default_value=default_behavior_config),
 
         Node(
             package='dingo_peripheral_interfacing',
-            executable='dingo_lcd_interfacing.py',
+            executable='jax_display_node.py',
             name='dingo_LCD_node',
             output='screen',
             condition=IfCondition(is_physical),
@@ -56,7 +47,6 @@ def generate_launch_description():
             executable='mode_manager.py',
             name='dingo_mode_manager',
             output='screen',
-            parameters=[behavior_config],
         ),
         Node(
             package='dingo',
@@ -64,6 +54,5 @@ def generate_launch_description():
             name='dingo_driver',
             output='screen',
             arguments=[is_sim, is_physical, use_imu],
-            parameters=[behavior_config],
         ),
     ])

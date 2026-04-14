@@ -1,6 +1,0 @@
-{
-  "package_name": "dingo_peripheral_msgs",
-  "non_idl_tuples": [
-    "/home/tdp378/DingoQuadruped/dingo_ws/src/dingo_peripheral_msgs:msg/ElectricalMeasurements.msg"
-  ]
-}

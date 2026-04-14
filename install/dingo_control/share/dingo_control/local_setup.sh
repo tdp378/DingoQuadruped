@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_control/ament_cmake_environment_hooks/local_setup.sh

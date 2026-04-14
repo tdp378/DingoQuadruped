@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_control_msgs/ament_cmake_environment_hooks/pythonpath.sh

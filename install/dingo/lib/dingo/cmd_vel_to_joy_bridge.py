@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/dingo_ws/src/dingo/scripts/cmd_vel_to_joy_bridge.py

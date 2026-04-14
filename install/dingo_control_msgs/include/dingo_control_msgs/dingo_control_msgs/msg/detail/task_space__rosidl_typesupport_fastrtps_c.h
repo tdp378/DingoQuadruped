@@ -1,1 +1,0 @@
-/home/tdp378/DingoQuadruped/build/dingo_control_msgs/rosidl_typesupport_fastrtps_c/dingo_control_msgs/msg/detail/task_space__rosidl_typesupport_fastrtps_c.h
